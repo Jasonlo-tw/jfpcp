@@ -6,6 +6,19 @@ Rails.application.routes.draw do
   
   root 'pages#home' # use vue for search functionality on layout
 
+  # Static pages
+  resources :pages do
+    get :about_us
+    get :graffiti_world
+    get :faqs # use Vue here
+    get :delivery_region
+    get :contact_us
+    get :return
+    get :privacy_policy
+    get :terms_of_use
+    get :dealer_list
+  end
+
   # Account utility
   resources :account do
     get :login
@@ -27,18 +40,7 @@ Rails.application.routes.draw do
     
   end
 
-  # Static pages
-  resources :pages do
-    get :about_us
-    get :graffiti_world
-    get :faqs # use Vue here
-    get :delivery_region
-    get :contact_us
-    get :return
-    get :privacy_policy
-    get :terms_of_use
-    get :dealer_list
-  end
+  
 
   # Blog pages, essentially static (or generated with editor?)
   # TODO: blog editor?
