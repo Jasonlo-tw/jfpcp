@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  get 'collecitons/index'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  # TODO:   the routes here are all replaced with "resources", should be replaced to correct ones when the planning is done.
+  # FIXME:   the routes here are all replaced with "resources", should be replaced to correct ones when the planning is done.
 
   
   root 'pages#home' # use vue for search functionality on layout
