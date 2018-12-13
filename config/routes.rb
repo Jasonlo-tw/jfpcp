@@ -54,11 +54,11 @@ Rails.application.routes.draw do
   # end
 
   # Checkout process
-  # resources :cart do
-  #   get :checkout
-  # end
+  resources :cart
+  
+  end
 
 # Admin functionality
   # resources :admin
 
-end
+
