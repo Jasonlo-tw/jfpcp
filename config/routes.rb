@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   
   root 'pages#home' # use vue for search functionality on layout
 
+  # TODO: enable devise_for
   # devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
