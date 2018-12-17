@@ -22,23 +22,39 @@
     #TODO: implement search function
     #TODO: implement account utilities
     #FIXME: align-left for #search, align-right for #account
-    <div class="util-bar">
-      <div id="search">Search</div>
-      <div id="account">
-        <ul>
-          <li>Log In</li>
-          <li>Create account</li>
-        </ul>
-        <div id="cart" class="float-right">Cart content</div>
+    
+    <div class="util-bar container">
+      <div class="row justify-content-between">
+        
+        <div id="search" class="col-md-2">Search</div>
+
+        <div id="member-content" class="col pull-right">
+          
+          <span class="login">Log In</span>
+          <span> | </span>
+          <span class="register">Create account</span>
+            
+          
+
+          <span id="cart">Cart content</span>
+
+        </div>
       </div>
-      
+          
     </div>
+        
+        
+    
+        
+      
+    
 
     <div class="brand-logo text-center">
       <%= image_tag "JumpFromPaper_Logo-01_250x.png" %>
     </div>
 
-    <nav class="navbar navbar-default">
+    #TODO: make them button-like, especially need to apply drop-down for "SHOP"
+    <nav class="navbar navbar-default text-center">
       <div class="container">
         <%= link_to 'HOME', "#" %>
         <%= link_to 'SHOP', "#" %>
@@ -63,39 +79,55 @@
   
   
   <footer>
-    <div id="get-in-touch" class="footer-title">
-      <h2>Get in touch with us!</h2>
-      
-      <%= link_to 'facebook.gif', 'https://www.facebook.com/JumpFromPaper?fref=ts' %>
-      <%= link_to 'instagram.gif' , 'https://www.instagram.com/jumpfrompaper/' %>
-      <%= link_to 'pinterest.gif' , 'https://www.pinterest.com/jumpfrompaperbag/boards/' %>
-      <%= link_to 'tumblr.gif' , 'http://jumpfrompaper.tumblr.com/' %>
-      <%= link_to 'youtube.gif' , 'https://www.youtube.com/channel/UCMf0VyC1G89DGKV2dtbx1aQ' %>
-    
+    <div class="container">
+      <div class="row">
+        
+        <div class="col-md-4 text-center">
+          <div id="get-in-touch">
+            <h4>Get in touch with us!</h4>
+            
+            <%= link_to 'facebook.gif', 'https://www.facebook.com/JumpFromPaper?fref=ts' %><br>
+            <%= link_to 'instagram.gif' , 'https://www.instagram.com/jumpfrompaper/' %><br>
+            <%= link_to 'pinterest.gif' , 'https://www.pinterest.com/jumpfrompaperbag/boards/' %><br>
+            <%= link_to 'tumblr.gif' , 'http://jumpfrompaper.tumblr.com/' %><br>
+            <%= link_to 'youtube.gif' , 'https://www.youtube.com/channel/UCMf0VyC1G89DGKV2dtbx1aQ' %>
+          
+          </div>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <div id="about-us">
+            <h4>About Us</h4>
+            <%= link_to 'Our Story', '#' %><br>
+            <%= link_to 'Taiwan Pinkoi Store', 'https://www.pinkoi.com/store/jumpfrompaper' %><br>
+            <%= link_to 'China Website', 'https://www.jumpfrompaper.cn/' %>
+          
+          </div>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <div id="customer-service">
+            <h4>Customer Service</h4>
+            <%= link_to 'FAQs', '#' %><br>
+            <%= link_to 'Delivery Region', '#' %><br>
+            <%= link_to 'Contact Us', '#' %><br>
+            <%= link_to 'Return & Exchange', '#' %><br>
+            <%= link_to 'Privacy Policy', '#' %><br>
+            <%= link_to 'Terms of Use', '#' %><br>
+            <%= link_to 'Dealer List', '#' %>
+          </div>
+        </div>
+          
+          
+      </div>
+
     </div>
 
-    <div id="about-us" class="footer-title">
-      <h2>About Us</h2>
-      <%= link_to 'Our Story', '#' %>
-      <%= link_to 'Taiwan Pinkoi Store', 'https://www.pinkoi.com/store/jumpfrompaper' %>
-      <%= link_to 'China Website', 'https://www.jumpfrompaper.cn/' %>
-    
-    </div>
-    
-    <div id="customer-service" class="footer-title">
-      <h2>Customer Service</h2>
-      <%= link_to 'FAQs', '#' %>
-      <%= link_to 'Delivery Region', '#' %>
-      <%= link_to 'Contact Us', '#' %>
-      <%= link_to 'Return & Exchange', '#' %>
-      <%= link_to 'Privacy Policy', '#' %>
-      <%= link_to 'Terms of Use', '#' %>
-      <%= link_to 'Dealer List', '#' %>
-    </div>
-
-    <div id="copyright">
+    <div id="copyright" class="text-center">
     © 2018, JumpFromPaper
     </div>
+
+
   </footer>
 
 
