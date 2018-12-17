@@ -59,5 +59,8 @@ config.webpacker.check_yarn_integrity = true
   # Enable rack-livereload
   config.middleware.insert_after ActionDispatch::Static, Rack::LiveReload
 
+  # devise mailer configuration
+  config.action_mailer.default_url_options = { host: 'localhost', port: 5000 }
+
 
 end

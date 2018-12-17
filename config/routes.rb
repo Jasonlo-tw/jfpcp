@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   
 
+  devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   # FIXME:   the routes here are all replaced with "resources", should be replaced to correct ones when the planning is done.
