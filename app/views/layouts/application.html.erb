@@ -2,6 +2,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -14,36 +15,43 @@
 
   <body>
     
-    <div class="shipment-announcement">
-    We ship to Canada, Mexico, United Kingdom, Australia, Denmark, Norway and other places. Fin out more here!
+    <div class="shipment-announcement center">
+    We ship to Canada, Mexico, United Kingdom, Australia, Denmark, Norway and other places. Find out more here!
     </div>
     
-    <div class="util-wrapper">
+    #TODO: implement search function
+    #TODO: implement account utilities
+    #FIXME: align-left for #search, align-right for #account
+    <div class="util-bar">
       <div id="search">Search</div>
       <div id="account">
         <ul>
           <li>Log In</li>
           <li>Create account</li>
         </ul>
+        <div id="cart" class="float-right">Cart content</div>
       </div>
-      <div id="cart">Cart content</div>
+      
     </div>
 
-    <div class="brand-logo">
-    JFP
+    <div class="brand-logo text-center">
+      <%= image_tag "JumpFromPaper_Logo-01_250x.png" %>
     </div>
 
-    <div class="nav-bar">
-      <ul>
-        <li>HOME</li>
-        <li>SHOP</li>
-        <li>GRAFFITI WORLD</li>
-        <li>LOOK BOOK</li>
-        <li>BLOG</li>
-        <li>ABOUT US</li>
-      </ul>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <%= link_to 'HOME', "#" %>
+        <%= link_to 'SHOP', "#" %>
+        <%= link_to 'GRAFFITI WORLD', "#" %>
+        <%= link_to 'LOOK BOOK', "#" %>
+        <%= link_to 'BLOG', "#" %>
+        <%= link_to 'ABOUT US', "#" %>
+      </div>
+      
+      
+      
 
-    </div>
+    </nav>
 
 
 	<%= yield %>
