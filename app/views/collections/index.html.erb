@@ -7,7 +7,7 @@
 
         <div class="col-md-2">
             <div id="nav">
-                <!--FIXME: spanlaceholder for now, need to change to  correct temspanlate-strings-->
+                <!--FIXME: placeholder for now, need to change to  correct template-strings-->
 
                 Home > ALL PRODUCTS
             
@@ -33,7 +33,7 @@
         <div id="sidenav" class="col-xs-2">
             <p>Tag</p>
                 <span>------</span>
-                <!--TODO: tag texts from spanroduct model dynamically -->
+                <!--TODO: tag texts from product model dynamically -->
 
                 <ul class="nav">
                     <li>tag1</li>
@@ -59,18 +59,25 @@
              #FIXME: Pull the heading and dropdown to the same line -->
         
         <div id="product-wrapper" class="col-xs-10">
-            <div id="collections-header">
-                <h3>All products</h3>
+            <div id="collections-header" class="row" >
                 
-                <div id="sort-selector" class="pull-right">
-                    <span>Sort by</span>
-                    <box></box>
+                <div id="heading" >
+                    <h3>All products</h3>
                 </div>
+                
+                <div id="selector">
+                Sort by
+                </div>
+                    
+                    
+                    
             </div>
+        
 
-            <div id="products-grid">
+            <div id="products-grid" class="row">
                 <div id="products">
-                    <!--# TODO: autogenerate prroducts and filling -->
+                    <!--# TODO: autogenerate products and filling -->
+                    
                 </div>
 
                 <div id="pagination">
@@ -79,7 +86,9 @@
 
 
             </div>
+                
             
+
         </div>
     
 
