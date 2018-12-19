@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181217065335) do
+ActiveRecord::Schema.define(version: 20181218090259) do
+
+  create_table "products", force: :cascade do |t|
+    t.string "title"
+    t.string "string" 
+    #FIXME: should remove "string" column later. how come it appears?
+    t.decimal "price"
+    t.string "collection"
+    t.string "tag" #TODO: has_many :tag ?
+    #TODO: has_many :picture
+    t.text "description_short"
+    t.text "description_long"
+    #TODO: has_one :product_size
+    #TODO: has_one :product_detail
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    #TODO: has_many :customer_review
+    #TODO: salesmarketing/operations parameters, like :last_sold, :likes...etc.
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

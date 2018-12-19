@@ -35,7 +35,12 @@ Rails.application.routes.draw do
 
   # Collections
   resources :collections do
-    resources :all_products # do 
+    
+      get 'all_products'
+      get 'influencer_collection'
+      get 'monochrome_graffiti_collection'
+      
+    
       # get '/backpack'
       # get '/shoulder_bag'
       # get '/handbag'
