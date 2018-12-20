@@ -9,7 +9,7 @@
         <div class="row">
             <% @collections.each do |c| %>
               
-                <div class="card">
+                <div id="collection-cards" class="card">
                     <%= image_tag( c.picture, class: "card-img-top") %>
                     <div class="card-body">
                         <%= link_to c.name, controller: "collections", action: "show", name: c.name.parameterize %>

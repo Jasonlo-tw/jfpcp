@@ -75,9 +75,13 @@
         
 
             <div id="products-grid" class="row">
-                <div id="products">
+                <div id="products-list" class="card">
                     <!--# TODO: autogenerate products and filling -->
-                    
+                    <% @products.each do |p| %>
+                    <%= image_tag 'products/dummy.png', class: "card-img-top" %><br>
+                    <%= link_to p.name, controller: "products", action: "show", name: p.name.parameterize %><br>
+                    <%= p.price %>
+                    <% end %>
                 </div>
 
                 <div id="pagination">

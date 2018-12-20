@@ -86,3 +86,331 @@ Product.create!(
   description_short: "",
   description_long: ""
 )
+
+Product.create!(
+  name: "Graffiti Black Spaceman Backpack",
+  price: "112.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Turquoise Spaceman Backpack",
+  price: "112.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Giggle Pink Shoulder Bag",
+  price: "70.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Coo Coo Pink Spaceman Backpack",
+  price: "112.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Giggle Red Shoulder Bag",
+  price: "70.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "True Blue Spaceman Backpack",
+  price: "130.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Giggle Brown Rice Shoulder Bag",
+  price: "75.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Greenery Spaceman Backpack",
+  price: "130.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Watermelon Red Spaceman Backpack",
+  price: "125.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Giggle Minion Yellow Shoulder Bag",
+  price: "75.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Woolen Turquoise Handbag",
+  price: "125.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Red Checked Handbag",
+  price: "90.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Minion Yellow Spaceman Backpack",
+  price: "125.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Woolen Grey Handbag",
+  price: "125.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Adventure Red Backpack",
+  price: "110.00",
+  description_short: "",
+  description_long: ""
+)
+Product.create!(
+  name: "Dark Blue Checked Handbag",
+  price: "90.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Outer Red Stripe Handbag",
+  price: "100.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Outer Blue Stripe Handbag",
+  price: "100.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Junior True Blue Spaceman Backpack",
+  price: "105.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Giggle Watermelon Red Shoulder Bag",
+  price: "75.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Airy Blue Spaceman Backpack",
+  price: "125.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Junior Giggle Minion Yellow Shoulder Bag",
+  price: "65.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Coo Coo Blue Spaceman Backpack",
+  price: "120.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Junior Watermelon Red Spaceman Backpack",
+  price: "105.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Junior Greenery Spaceman Backpack",
+  price: "105.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Junior Airy Blue Spaceman Backpack",
+  price: "105.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Blue Checked Backpack",
+  price: "110.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Graffiti White Spaceman Backpack",
+  price: "120.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Junior Minion Yellow Spaceman Backpack",
+  price: "105.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Junior Giggle Brown Rice Shoulder Bag",
+  price: "65.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Graffiti Spotlight Black Purse",
+  price: "40.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Giggle Coo Coo Pink Shoulder Bag",
+  price: "70.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Junior Giggle Greenery Shoulder Bag",
+  price: "65.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Junior Brown Rice Spaceman Backpack",
+  price: "105.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Cactus Green Backpack",
+  price: "210.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Giggle Greenery Shoulder Bag",
+  price: "75.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Adventure Pink Backpack",
+  price: "110.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Spotlight Yellow Purse",
+  price: "40.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Spotlight Airy Blue Purse",
+  price: "40.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Cheese Printed Red Shoulder Bag",
+  price: "100.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Spotlight Blue Purse",
+  price: "40.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Spotlight Watermelon Red Purse",
+  price: "40.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Poketto Brown Rice Wallet",
+  price: "35.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Poketto True Blue Wallet",
+  price: "35.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Spotlight Greenery Purse",
+  price: "40.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Poketto Greenery Wallet",
+  price: "35.00",
+  description_short: "",
+  description_long: ""
+)
+
+Product.create!(
+  name: "Spotlight True Blue Purse",
+  price: "40.00",
+  description_short: "",
+  description_long: ""
+)

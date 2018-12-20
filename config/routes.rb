@@ -14,7 +14,10 @@ Rails.application.routes.draw do
   # Collections
   # the desired path
   # /collections/:name
-  resources :collections, param: :name, only: [:index, :show]
+  resources :collections, param: :name, only: [:index, :show] do
+    resources :products, param: :name, only: [:show]
+  #FIXME: separate collection_name and product_name in schema as they both need to take in params
+  end
     
       # get '/backpack'
       # get '/shoulder_bag'
