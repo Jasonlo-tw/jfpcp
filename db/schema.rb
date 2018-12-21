@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181221070212) do
+ActiveRecord::Schema.define(version: 20181221095805) do
 
   create_table "collection_links", force: :cascade do |t|
-    t.integer "collection_id"
-    t.integer "product_id"
+    t.string "collection_name"
+    t.string "product_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["collection_id"], name: "index_collection_links_on_collection_id"
-    t.index ["product_id"], name: "index_collection_links_on_product_id"
+    t.index ["collection_name"], name: "index_collection_links_on_collection_name"
+    t.index ["product_name"], name: "index_collection_links_on_product_name"
   end
 
   create_table "collections", force: :cascade do |t|
