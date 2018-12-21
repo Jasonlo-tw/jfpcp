@@ -11,13 +11,15 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
 
-  # Collections
+  # Collections, #index, #show
   # the desired path
   # /collections/:name
-  resources :collections, param: :collection_name, only: [:index, :show] do
-    resources :products, param: :product_name, only: [:show], shallow: true
+  resources :collections, param: :collection_name, only: [:index, :show]
  
-  end
+  
+  # Products 
+  #show certain product only
+  get 'collections/:collection_name/products/:product_name', to: 'products#show'
     
       # get '/backpack'
       # get '/shoulder_bag'
