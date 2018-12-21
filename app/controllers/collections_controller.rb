@@ -5,10 +5,12 @@ class CollectionsController < ApplicationController
   end
 
   def show
-    @collection = Collection.find_by(name: params[:name])
+    @collection = Collection.find_by(collection_name: params[:collection_name])
     @products = Product.all
     
   end
+
+  
 
   private
 

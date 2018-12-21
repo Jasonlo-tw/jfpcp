@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181220131443) do
+ActiveRecord::Schema.define(version: 20181221070212) do
+
+  create_table "collection_links", force: :cascade do |t|
+    t.integer "collection_id"
+    t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["collection_id"], name: "index_collection_links_on_collection_id"
+    t.index ["product_id"], name: "index_collection_links_on_product_id"
+  end
 
   create_table "collections", force: :cascade do |t|
-    t.string "name"
+    t.string "collection_name"
     t.date "release_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -21,7 +30,7 @@ ActiveRecord::Schema.define(version: 20181220131443) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "name"
+    t.string "product_name"
     t.decimal "price"
     t.text "description_short"
     t.text "description_long"

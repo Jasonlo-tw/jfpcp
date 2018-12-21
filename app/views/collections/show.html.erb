@@ -79,7 +79,10 @@
                     <!--# TODO: autogenerate products and filling -->
                     <% @products.each do |p| %>
                     <%= image_tag 'products/dummy.png', class: "card-img-top" %><br>
-                    <%= link_to p.name, controller: "products", action: "show", name: p.name.parameterize %><br>
+                    <%= link_to p.product_name
+                    #, controller: "products", action: "show", name: p.product_name.parameterize 
+                    %><br>
+                    <!--FIXME: the link is broken for now, fix it against nested routing -->
                     <%= p.price %>
                     <% end %>
                 </div>

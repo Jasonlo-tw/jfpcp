@@ -12,7 +12,7 @@
                 <div id="collection-cards" class="card">
                     <%= image_tag( c.picture, class: "card-img-top") %>
                     <div class="card-body">
-                        <%= link_to c.name, controller: "collections", action: "show", name: c.name.parameterize %>
+                        <%= link_to c.collection_name, controller: "collections", action: "show", collection_name: c.collection_name.parameterize %>
                     </div>
               
             
