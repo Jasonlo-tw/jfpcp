@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   # the desired path
   # /collections/:name
   resources :collections, param: :collection_name, only: [:index, :show] do
-    resources :products, param: :product_name, only: [:show]
+    resources :products, param: :product_name, only: [:show], shallow: true
  
   end
     
