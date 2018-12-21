@@ -418,19 +418,3 @@
 #   description_long: ""
 # )
 
-# COLLECTION_LINKS
-# CollectionLink.delete_all
-
-# # Fill products into 11 collections
-
-
-# CollectionLink.create!(
-#   collection_name: "",
-#   product_name: ""
-# )
-
-
-# # Besides to its own category, all products also belongs to "all-products"
-# CollectionLink.create!(
-
-# )

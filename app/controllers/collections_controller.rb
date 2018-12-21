@@ -8,14 +8,17 @@ class CollectionsController < ApplicationController
     @collection = Collection.find_by(collection_name: params[:collection_name])
 
     # temporary implement to show all products
-    @products = Product.all
+    # @products = Product.all
 
-    # TODO: correct implementation
-    # if @collection == "All Products"
-    #   @products = Product.all
-    # else
-    #   @products = 
-    # end
+    # Correct implementation
+    # TODO: better 404 for collections?
+    if params[:collection_name] == "all-products"
+      @products = Product.all
+    elsif
+      @products = Product.find_by(collection_name: params[:collection_name])
+    else
+      render file: "/public/404", status: :not_found
+    end
     
   end
 
