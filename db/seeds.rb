@@ -418,3 +418,17 @@
 #   description_long: ""
 # )
 
+
+
+# Products with collections
+
+# Art Baby Collection
+# Collection.products.create!(
+#     product_name: "Art Baby Pink Purse", 
+#     price: "36.00",
+#     description_short: "JumpFromPaper X Art Baby Collection",
+#     description_long: "
+#     Pink is not just a color! It's an attitude!<br>
+#     Let's show people your chic cartoon style! ",
+#     collection_name: "Art Baby Collection"
+# )

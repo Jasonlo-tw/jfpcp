@@ -1,6 +1,7 @@
 class AddForeignKeyCollectionIdToProduct < ActiveRecord::Migration[5.1]
   def change
-    add_column :products, :collection_id, :integer
-    #Ex:- add_column("admin_users", "username", :string, :limit =>25, :after => "email")
+    remove_column :products, :collection_name
+
+    add_foreign_key :products, :collection, name: :collection_name
   end
 end
