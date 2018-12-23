@@ -1,6 +1,97 @@
 <%= render 'partials/path_nav' %>
 
-<%= @product.product_name %>
-<%= @product.price %>
+<div id="product-container" class="container">
+    <div class="row">
+        <div id="picture" class="col-xs-6">
+            <%= image_tag 'products/dummy.png' %>
+        </div>
 
-<!-- TODO: use number_to_currency method for price -->
+        <div id="product-info" class="col-xs-6">
+            <h3><%= @product.product_name %></h3><br>
+            <!-- TODO: use number_to_currency method for price -->
+            <span><%= @product.price %></span><br>
+            <hr>
+            <div id="quantity-select" class="col-xs-5">Quantity</div>
+            <div id="add-to-cart" class="col-xs-7"><%= button_to 'ADD TO CART', path: '#'%></div>
+            <hr>
+            <div id="product-description">
+                <%= @product.description_short %><br>
+                <%= @product.description_long %>
+            </div>
+
+            <div class="size">
+
+            <h4>SIZE</h4>
+
+            <ul>
+                <!-- TODO: write unit helper for lengths, default: cm -->
+                <li>Contracted: <%= @product.size_contracted %></li>
+                <li>Extended: @product.size_extended </li>
+                <li>Strap: @product.size_strap</li>
+            </ul>
+
+            </div>
+
+            <div class="detail">
+                <h4>DETAIL</h4>
+                
+                <ul>
+                    <li>Style: <%= @product.detail_style %></li>
+                    <li>Material: <%= @product.detail_material %></li>
+                    <li>Cleaning: <%= @product.detail_cleaning %></li>
+                    <li>Max capacity: <%= @product.detail_capacity %></li>
+                </ul>
+
+            </div>
+
+            <div class="color">
+                <span>
+                Please note that actual colors may vary due to the different monitor settings or different lighting effect in the model shoot.
+                </span>
+            </div>
+
+            <div class="delivery">
+                <span>
+                Delivery normally will take 3-10 business days. We ship to AU ,CA ,UK ,MX ,FR ,GE ,NL ,NOR ,SKR ,JP and other places. For more detail, please click <a href="https://www.jumpfrompaper.com/pages/delivery-region">Here</a> 
+                </span>
+            </div>
+
+            <div class="return_warranty">
+                <span>
+                Returns are eligible within 28 days of receipt. For more detail, please click <a href="https://www.jumpfrompaper.com/pages/return">Here</a><br>
+                All JumpFromPaper products are provided with six months warranty that covers defects in materials and workmanship.
+                </span>
+            
+            </div>
+
+            <div id="likes"></div>
+
+            <div class="reviews">
+            <!-- TODO: use Vanilla to generate form and conditionally show reviews -->
+            
+            
+            </div>
+
+
+
+
+        
+        </div>
+    
+    
+    
+    </div>
+
+</div>
+
+<div class="recently_viewed">
+<!--TODO: Randomly show products in 6 columns for this stage-->
+
+</div>
+
+<div class="you_may_also_like">
+<!--TODO: Randomly show products in 4 columns for this stage-->
+</div>
+
+
+
