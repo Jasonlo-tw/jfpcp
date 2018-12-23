@@ -1,30 +1,7 @@
 
-<!--TODO: refactor it into partial, the path should change dynamically -->
+<%= render 'partials/path_nav' %>
 
-<div class="container">
-    <div class="row">
-        
 
-        <div class="col-md-2">
-            <div id="nav">
-                <!--FIXME: placeholder for now, need to change to  correct template-strings-->
-
-                Home > ALL PRODUCTS
-            
-            </div>
-        
-        </div>
-
-        <div class="col-md pull-right">
-            <div id="social">
-                <!--FIXME: use correct icons later-->
-            
-                <span>F </span><span>I </span><span>P </span><span>t </span><span>Y </span>
-            </div>
-        </div>
-    </div>
-
-</div>
 
 
 
@@ -54,16 +31,15 @@
         </div>
 
 
-        <!-- #TODO: category selector-->
-        <!-- #FIXME: The heading should change according to the category chosen
-             #FIXME: Pull the heading and dropdown to the same line -->
+        <!-- #TODO: sorting selector after products are done -->
+        <!-- #FIXME: Pull the heading and dropdown to the same line -->
         
         <div id="product-wrapper" class="col-xs-10">
-            <div id="collections-header" class="row" >
+            <div id="collections-header" class="row " >
                 
-                <div id="heading" >
-                    <h3>All products</h3>
-                </div>
+                
+                <h3 id="heading"><%= params[:collection_name].titleize %></h3>
+                
                 
                 <div id="selector">
                 Sort by
@@ -72,23 +48,37 @@
                     
                     
             </div>
+
+            <hr>
         
 
             <div id="products-grid" class="row">
-                <div id="product-list" class="card">
+                
                     
-                    <!-- Fill in products by collection -->
-                    <% @products.each do |p| %>
-                    <%= image_tag 'products/dummy.png', class: "card-img-top" %><br>
-                    <%= link_to p.product_name, controller: "products", action: "show", product_name: p.product_name.parameterize 
-                    %><br>
-                    <!--FIXME: the link is broken for now, fix it against nested routing -->
-                    <%= p.price %>
-                    <% end %>
-                </div>
+                <!-- Fill in products by collection -->
+                <% @products.each do |p| %>
+                    <div id="product-list" class="card">
+                    
+                        <div class="card-body col-md-4 text-center">
+                            <!-- Product image -->
+                            <!-- TODO: Make whole cell clickable-->
+                            <%= image_tag 'products/dummy.png', class: "card-img-top " %><br>
+
+                            <!-- Product name -->
+                            <%= link_to p.product_name, controller: "products", action: "show", product_name: p.product_name.parameterize 
+                            %><br>
+
+                            <!-- Product price -->
+                            <!-- TODO: Use currency helper on price-->
+                            <%= p.price %>
+                        </div>
+                    </div>
+                <% end %>
+
+                
 
                 <div id="pagination">
-                    <!--# TODO: gem will_paginate... or just bootstrap? -->
+                    <!--# TODO: pagination with bootstrap -->
                 </div>
 
 
@@ -97,6 +87,11 @@
             
 
         </div>
+    </div>
+</div>
+
+
+
+
     
 
-</div>

@@ -2,14 +2,15 @@
     <h2>All collections</h2>
     <hr>
     
-    <!--FIXME: make cards separate into 3 columns -->
+    
     <div class="container">
         
 
         <div class="row">
             <% @collections.each do |c| %>
               
-                <div id="collection-cards" class="card">
+                <div id="collection-cards" class="card col-xs-4">
+                    <!-- FIXME: some pictures are with different size, causing the arrangement broken. Either auto-adjust size in cell or adjust their original image. -->
                     <%= image_tag( c.picture, class: "card-img-top") %>
                     <div class="card-body">
                         <%= link_to c.collection_name, controller: "collections", action: "show", collection_name: c.collection_name.parameterize %>
