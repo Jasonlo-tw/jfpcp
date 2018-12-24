@@ -1,55 +1,66 @@
 <%= render 'partials/path_nav' %>
 
-<div id="prev_next" class="pull-right">
-<!-- TODO: conditionally show 'previous', '|', 'next' -->
-    <span>
-        <%= link_to '←Previous Product', '#' %>
-        <p>|</p>
-        <%= link_to 'Next Product', '#' %>
-    </span>
+<div class="container">
+    <div id="prev_next" class="text-right row">
+    <hr>
+    <!-- TODO: conditionally show 'previous', '|', 'next' -->
+    <!--Reversed arrangement because of "pull-right". WTF? Let frontend take care of it. I'm backend. -->
+        
+        <span id="next" class="pull-right"><%= link_to 'Next Product →', '#' %></span>
+        <span id="hyphen" class="pull-right">&nbsp;|&nbsp;</span>
+        <span id="prev" class="pull-right"><%= link_to '←Previous Product', '#' %></span>
+    </div>
+        
 </div>
 
+
 <!-- FIXME: Let's just take three collection for practice, if there's need to interact with more collections, just add later-->
-<div id="product-container" class="container">
+<div id="page-container" class="container">
     <div class="row">
-        <div id="picture" class="col-xs-6">
+        <div id="picture" class="col-xs-6 text-center">
             <%= image_tag 'products/dummy.png' %>
+            <br>
         </div>
 
         <div id="product-info" class="col-xs-6">
-            <h3><%= @product.product_name %></h3><br>
+            <h2><b><%= @product.product_name %></b></h2>
+            <br>
+
             <!-- TODO: use number_to_currency method for price in i18n implementation, default USD$ -->
-            <span>USD$@<%= product.price %></span><br>
+            <span>USD$<%= @product.price %></span><br>
             <hr>
+
             <div id="quantity-select" class="col-xs-5">Quantity</div>
-            <div id="add-to-cart" class="col-xs-7"><%= button_to 'ADD TO CART', path: '#'%></div>
+            <div id="add-to-cart" class="col-xs-7"><%= button_to 'ADD TO CART', path: '#'%></div><br>
             <hr>
+
             <div id="product-description">
             <!-- Add .html_safe to ensure to description HTML tags can be applied instead of shown directly -->
-                <%= @product.description_short.html_safe %><br>
+                <h4><b><%= @product.description_short.html_safe %></b></h4>
+                <br>
                 <%= @product.description_long.html_safe %>
             </div>
 
             <div class="size">
 
-            <h4>SIZE</h4>
+            <h4><b>SIZE</b></h4>
 
             <ul>
                 <!-- TODO: write unit helper for lengths in i18n implementation, default: cm -->
                 <li>Contracted: <%= @product.size_contracted %> cm</li>
                 <li>Extended: <%= @product.size_extended %> cm </li>
-                <% if @product.size_strap !== "" %>
+                <% if @product.size_strap != "" %>
                 <li>Strap: <%= @product.size_strap %> cm</li>
                 <% end %>
-                <% if @product.size_handdrop !== "" %>
-                <li>Hand Drop: <%= @product.size_handdrop %> cm</li>
+                <% if @product.size_hand_drop != "" %>
+                <li>Hand Drop: <%= @product.size_hand_drop %> cm</li>
                 <% end %>
             </ul>
 
             </div>
 
             <div class="detail">
-                <h4>DETAIL</h4>
+                <h4><b>DETAIL</b></h4>
                 
                 <ul>
                     <li>Style: <%= @product.detail_style %></li>
@@ -60,20 +71,24 @@
 
             </div>
 
-            <!-- TODO: hide the next three sections with JS, shown on:click-->
+            <!-- TODO: hide the next three sections with JS, shown on:click.
+            The headings for now are temporary. -->
             <div class="color">
+                <h4>COLOR</h4>
                 <span>
                 Please note that actual colors may vary due to the different monitor settings or different lighting effect in the model shoot.
                 </span>
             </div>
 
             <div class="delivery">
+                <h4>DELIVERY</h4>
                 <span>
                 Delivery normally will take 3-10 business days. We ship to AU ,CA ,UK ,MX ,FR ,GE ,NL ,NOR ,SKR ,JP and other places. For more detail, please click <a href="https://www.jumpfrompaper.com/pages/delivery-region">Here</a> 
                 </span>
             </div>
 
             <div class="return_warranty">
+                <h4>RETURN & WARRANTY</h4>
                 <span>
                 Returns are eligible within 28 days of receipt. For more detail, please click <a href="https://www.jumpfrompaper.com/pages/return">Here</a><br>
                 All JumpFromPaper products are provided with six months warranty that covers defects in materials and workmanship.
@@ -83,37 +98,56 @@
 
             <div id="stars_social"></div>
 
-            <div class="reviews">
+            <div id="reviews" class="row">
             <!-- TODO: use Vanilla to generate form and conditionally show reviews -->
-            
-            
+            <h3><b>Customer Reviews</b></h3>
+            <a href="#" class="pull-right">Write a review</a>
+
             </div>
 
-
-
-
-        
         </div>
     
     
     
     </div>
 
-</div>
+    <br>
+    <br>
+    <br>
+    <br>
 
-<div div="recently_viewed" class="container">
-    <div class="row">
-    <!--TODO: Randomly show products in 6 columns for this stage-->
+    <div div="recently_viewed" class="row ">
+        <!--TODO: Randomly show products in 6 auto-adjusting columns for this stage-->
+
+        <h4><b>♥ Recently Viewed Items</b></h4>
+        <div id="pictures" class="justify-content-around">
+            <%= image_tag 'products/dummy.png' %>
+            <%= image_tag 'products/dummy.png' %>
+            <%= image_tag 'products/dummy.png' %>
+            <%= image_tag 'products/dummy.png' %>
+            <%= image_tag 'products/dummy.png' %>
+            <%= image_tag 'products/dummy.png' %>
+        </div>
+        
+
+
     </div>
 
-
-</div>
-
-<div div="you_may_also_like">
-    <div class="row">
-    <!--TODO: Randomly show products in 4 columns for this stage-->
+    <div div="you_may_also_like" class="row">
+        <!--TODO: Randomly show products in 4 auto-adjusting columns for this stage-->
+        <h3>You May Also Like</h3>
+        <div id="pictures" class="justify-content-around">
+            <%= image_tag 'products/dummy.png' %>
+            <%= image_tag 'products/dummy.png' %>
+            <%= image_tag 'products/dummy.png' %>
+            <%= image_tag 'products/dummy.png' %>
+           
+        </div>
+        
     </div>
+
 </div>
+
 
 
 

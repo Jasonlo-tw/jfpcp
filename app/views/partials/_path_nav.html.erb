@@ -1,25 +1,24 @@
 <div class="container">
-    <div class="row">
+    <div class="row justify-content-between">
         
 
-        <div id="nav">
-            <span>
-                <!--FIXME: write helper to show path -->
-
-                HOME > <%= params[:collection_name].titleize.upcase %> 
+        <div id="nav" class="col-xs-8">
             
-            </span>
+            <!--FIXME: write helper to show path -->
+
+            HOME > <%= params[:collection_name].titleize.upcase %> 
+            
+            
         
         </div>
 
-        <div class="col-md pull-right">
-            <div id="social">
-                <!--FIXME: use correct icons later and add links-->
+        <div id="social" class="col-xs-4 text-right">
             
-                <span>F </span><span>I </span><span>P </span><span>t </span><span>Y </span>
-            </div>
+            <!--FIXME: use correct icons later and add links-->
+        
+            <span>F </span><span>I </span><span>P </span><span>t </span><span>Y </span>
+            
         </div>
     </div>
 
 </div>
-<hr>
