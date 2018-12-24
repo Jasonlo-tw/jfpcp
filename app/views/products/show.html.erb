@@ -1,5 +1,15 @@
 <%= render 'partials/path_nav' %>
 
+<div id="prev_next" class="pull-right">
+<!-- TODO: conditionally show 'previous', '|', 'next' -->
+    <span>
+        <%= link_to '←Previous Product', '#' %>
+        <p>|</p>
+        <%= link_to 'Next Product', '#' %>
+    </span>
+</div>
+
+<!-- FIXME: Let's just take three collection for practice, if there's need to interact with more collections, just add later-->
 <div id="product-container" class="container">
     <div class="row">
         <div id="picture" class="col-xs-6">
@@ -8,15 +18,16 @@
 
         <div id="product-info" class="col-xs-6">
             <h3><%= @product.product_name %></h3><br>
-            <!-- TODO: use number_to_currency method for price -->
-            <span><%= @product.price %></span><br>
+            <!-- TODO: use number_to_currency method for price in i18n implementation, default USD$ -->
+            <span>USD$@<%= product.price %></span><br>
             <hr>
             <div id="quantity-select" class="col-xs-5">Quantity</div>
             <div id="add-to-cart" class="col-xs-7"><%= button_to 'ADD TO CART', path: '#'%></div>
             <hr>
             <div id="product-description">
-                <%= @product.description_short %><br>
-                <%= @product.description_long %>
+            <!-- Add .html_safe to ensure to description HTML tags can be applied instead of shown directly -->
+                <%= @product.description_short.html_safe %><br>
+                <%= @product.description_long.html_safe %>
             </div>
 
             <div class="size">
@@ -24,10 +35,15 @@
             <h4>SIZE</h4>
 
             <ul>
-                <!-- TODO: write unit helper for lengths, default: cm -->
-                <li>Contracted: <%= @product.size_contracted %></li>
-                <li>Extended: @product.size_extended </li>
-                <li>Strap: @product.size_strap </li>
+                <!-- TODO: write unit helper for lengths in i18n implementation, default: cm -->
+                <li>Contracted: <%= @product.size_contracted %> cm</li>
+                <li>Extended: <%= @product.size_extended %> cm </li>
+                <% if @product.size_strap !== "" %>
+                <li>Strap: <%= @product.size_strap %> cm</li>
+                <% end %>
+                <% if @product.size_handdrop !== "" %>
+                <li>Hand Drop: <%= @product.size_handdrop %> cm</li>
+                <% end %>
             </ul>
 
             </div>
@@ -44,6 +60,7 @@
 
             </div>
 
+            <!-- TODO: hide the next three sections with JS, shown on:click-->
             <div class="color">
                 <span>
                 Please note that actual colors may vary due to the different monitor settings or different lighting effect in the model shoot.
@@ -64,7 +81,7 @@
             
             </div>
 
-            <div id="likes"></div>
+            <div id="stars_social"></div>
 
             <div class="reviews">
             <!-- TODO: use Vanilla to generate form and conditionally show reviews -->
@@ -84,13 +101,18 @@
 
 </div>
 
-<div class="recently_viewed">
-<!--TODO: Randomly show products in 6 columns for this stage-->
+<div div="recently_viewed" class="container">
+    <div class="row">
+    <!--TODO: Randomly show products in 6 columns for this stage-->
+    </div>
+
 
 </div>
 
-<div class="you_may_also_like">
-<!--TODO: Randomly show products in 4 columns for this stage-->
+<div div="you_may_also_like">
+    <div class="row">
+    <!--TODO: Randomly show products in 4 columns for this stage-->
+    </div>
 </div>
 
 

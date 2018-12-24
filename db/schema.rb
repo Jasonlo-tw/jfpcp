@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181222083813) do
+ActiveRecord::Schema.define(version: 20181224072620) do
 
   create_table "collections", force: :cascade do |t|
     t.string "collection_name"
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 20181222083813) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "collection_id"
+    t.string "size_contracted"
+    t.string "size_extended"
+    t.string "size_strap"
+    t.string "detail_style"
+    t.string "detail_material"
+    t.string "string"
+    t.string "detail_cleaning"
+    t.string "detail_capacity"
+    t.integer "size_hand_drop"
     t.index ["collection_id"], name: "index_products_on_collection_id"
   end
 
