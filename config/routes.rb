@@ -1,25 +1,32 @@
 Rails.application.routes.draw do
 
+  get 'line_items/create'
+
+  get 'line_items/update'
+
+  get 'line_items/destroy'
+
   # FIXME:   the routes here are all replaced with "resources", should be replaced to correct ones when the planning is done.
 
   # as the landing page only renders the predefined partials, simply give its controller a dummy #home action and thus the view, not even #index, #show...etc.
   root 'pages#home' 
   
 
-  # TODO: enable devise_for
-  # devise_for :users
+  
+  devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
 
   # Collections, #index, #show
-  # the desired path
-  # /collections/:name
+  # the desired path: /collections/:name
   resources :collections, param: :collection_name, only: [:index, :show]
  
   
   # Products 
   #show certain product only
   get 'collections/:collection_name/products/:product_name', to: 'products#show'
+
+  
     
       # get '/backpack'
       # get '/shoulder_bag'
@@ -27,10 +34,12 @@ Rails.application.routes.draw do
       # get '/purse'
       # get '/gift_under_100'
       
-    #end
-    # get '/influencer_collection'
-    # get '/graffiti_collection'
     
+      # get '/influencer_collection'
+      # get '/graffiti_collection'
+    
+  # Line_items
+  resources :line_items, only: [:create, :update, :destroy]
   
 
   # Account utility
@@ -60,7 +69,7 @@ Rails.application.routes.draw do
   # end
 
   # Checkout process
-  resources :cart
+  resources :carts
   
   
 

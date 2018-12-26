@@ -1,0 +1,16 @@
+
+<!-- Post to line_items to :create a new line item-->
+<div id="add-to-cart" class="">
+<%= button_to 'ADD TO CART', line_items_path(product_id: @product.id) 
+%>
+
+<!-- Unlike adjusting quantity on product page like the original JFP site, quantity changing is moved to cart page like Pinkoi does -->
+<!--FIXME: In first iteration, user is redirected to cart immediately after submitting as default; refactor to Ajax with buttons in later iterations to prevent default -->
+<!-- TODO: change color for button after submit -->
+</div>
+<br>
+<hr>
+
+
+
+

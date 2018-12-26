@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
+    include FindingMethods
 
     def show
-        @product = Product.find_by(product_name: titleized_param)
+        @product = Product.find_by(product_name: titleized_param_product)
 
         #TODO: conditionally hide empty collections?
     end
@@ -11,15 +12,7 @@ class ProductsController < ApplicationController
     
 
 
-    # titleize param[:product_name] before defining @product to get eg.
-    # Brown Rice Spaceman Backpack
-    # instead of 
-    # brown-rice-spaceman-backpack
-    # as originally in params[:product_name]
-    def titleized_param
-        
-        params[:product_name].titleize
-    end
+    
 
 end
 

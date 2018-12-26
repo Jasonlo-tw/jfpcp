@@ -28,8 +28,12 @@ class CollectionsController < ApplicationController
 
       
       @products = Product.where(collection_id: @collection.id)
+
+    
     
     end
+
+    
     
   end
 

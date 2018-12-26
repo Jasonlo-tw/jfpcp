@@ -30,16 +30,15 @@
             <span>USD$<%= @product.price %></span><br>
             <hr>
 
-            <div id="quantity-select" class="col-xs-5">Quantity</div>
-            <div id="add-to-cart" class="col-xs-7"><%= button_to 'ADD TO CART', path: '#'%></div><br>
-            <hr>
+            <%= render 'add_to_cart' %>
 
             <div id="product-description">
-            <!-- Add .html_safe to ensure to description HTML tags can be applied instead of shown directly -->
+                <!-- Add .html_safe to ensure to description HTML tags can be applied instead of shown directly -->
                 <h4><b><%= @product.description_short.html_safe %></b></h4>
                 <br>
                 <%= @product.description_long.html_safe %>
             </div>
+            <br>
 
             <div class="size">
 

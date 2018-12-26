@@ -3,6 +3,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -15,65 +16,25 @@
 
   <body>
     
-    <div class="shipment-announcement center">
-    We ship to Canada, Mexico, United Kingdom, Australia, Denmark, Norway and other places. Find out more here!
-    </div>
-    
-    <!-- #TODO: implement search function -->
-    <!-- #TODO: implement account utilities -->
-    
-    
-    <div class="util-bar container-fluid">
-      <div class="row justify-content-between">
-        
-        <div id="search" class="col-md-2">Search</div>
-
-        <div id="member-content" class="col pull-right">
-          
-          <span class="login">Log In</span>
-          <span> | </span>
-          <span class="register">Create account</span>
-            
-          
-
-          <span id="cart">Cart content</span>
-
-        </div>
-      </div>
-          
-    </div>
-        
-        
-    
-        
-      
+    <%= render 'layouts/shipment_announcements' %>
+    <%= render 'layouts/util_bar' %>
+    <%= render 'layouts/brand_logo' %>
+    <%= render 'layouts/navbar' %>
     
 
-    <div class="brand-logo text-center">
-      <%= image_tag "JumpFromPaper_Logo-01_250x.png" %>
-    </div>
-
-    <!-- #TODO: make them button-like, especially need to apply drop-down for "SHOP" -->
-    <nav class="navbar navbar-default text-center">
-      <div class="container">
-        <%= link_to 'HOME', "#" %>
-        <%= link_to 'SHOP', "#" %>
-        <%= link_to 'GRAFFITI WORLD', "#" %>
-        <%= link_to 'LOOK BOOK', "#" %>
-        <%= link_to 'BLOG', "#" %>
-        <%= link_to 'ABOUT US', "#" %>
-      </div>
+    
       
       
       
 
-    </nav>
+    
 
     <p class="notice"><%= notice %></p>       
     <p class="alert"><%= alert %></p>
 
 
 	<%= yield %>
+
   </body>
 
   
@@ -81,56 +42,7 @@
   
   
   <footer>
-    <div class="container">
-      <div class="row">
-        
-        <div class="col-md-4 text-center">
-          <div id="get-in-touch">
-            <h3><b>Get in touch with us!</b></h3>
-            
-            <!-- TODO: Use 'Font Awesome' to implement social icons on layout and partials -->
-            <!-- https://www.w3schools.com/icons/fontawesome_icons_brand.asp -->
-            <!-- https://www.injerry.com/blog-view.php?PID=5&sn=26 -->
-            <%= link_to 'facebook.gif', 'https://www.facebook.com/JumpFromPaper?fref=ts' %><br>
-            <%= link_to 'instagram.gif' , 'https://www.instagram.com/jumpfrompaper/' %><br>
-            <%= link_to 'pinterest.gif' , 'https://www.pinterest.com/jumpfrompaperbag/boards/' %><br>
-            <%= link_to 'tumblr.gif' , 'http://jumpfrompaper.tumblr.com/' %><br>
-            <%= link_to 'youtube.gif' , 'https://www.youtube.com/channel/UCMf0VyC1G89DGKV2dtbx1aQ' %>
-          
-          </div>
-        </div>
-
-        <div class="col-md-4 text-center">
-          <div id="about-us">
-            <h3><b>About Us</b></h3>
-            <%= link_to 'Our Story', '#' %><br>
-            <%= link_to 'Taiwan Pinkoi Store', 'https://www.pinkoi.com/store/jumpfrompaper' %><br>
-            <%= link_to 'China Website', 'https://www.jumpfrompaper.cn/' %>
-          
-          </div>
-        </div>
-
-        <div class="col-md-4 text-center">
-          <div id="customer-service">
-            <h3><b>Customer Service</b></h3>
-            <%= link_to 'FAQs', '#' %><br>
-            <%= link_to 'Delivery Region', '#' %><br>
-            <%= link_to 'Contact Us', '#' %><br>
-            <%= link_to 'Return & Exchange', '#' %><br>
-            <%= link_to 'Privacy Policy', '#' %><br>
-            <%= link_to 'Terms of Use', '#' %><br>
-            <%= link_to 'Dealer List', '#' %>
-          </div>
-        </div>
-          
-          
-      </div>
-
-    </div>
-
-    <div id="copyright" class="text-center">
-    © 2018, JumpFromPaper
-    </div>
+    <%= render 'layouts/footer' %>
 
 
   </footer>
