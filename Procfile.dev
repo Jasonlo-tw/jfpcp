@@ -1,5 +1,5 @@
 
 
 web: bundle exec rails s
-watcher: ./bin/webpack --watch
+watcher: ./bin/webpack-dev-server
 guard: bundle exec guard

@@ -20,7 +20,7 @@
         <div id="content" class="row">
             <span id="product_name" class="col-xs-2">
                 <!--FIXME: put the actual image after the function is finished-->
-                <p>@product.image</p>
+                <p><%= image_tag 'products/dummy.png' %></p>
                 
             </span>
 
@@ -35,7 +35,21 @@
             </span>
             
             <span id="quantity" class="col-xs-2">
+            
+            <!-- Rails way
             BOX
+            -->
+            
+            
+            <br>
+            
+            <span id="remove">
+            <!-- Rail way 
+            <%= link_to 'Remove', '#' %>
+            -->
+            </span>
+            
+            
             </span>
             <span id="total" class="col-xs-2 push-right">
             USD$XXX.OO
