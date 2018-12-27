@@ -3,6 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_one :cart
+         
+  # This line may cause user validation.
+    # As non-users are allowed to checkout, what about skipping this relationship?
+  # has_one :cart
+
   has_many :orders
 end

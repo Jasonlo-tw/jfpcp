@@ -3,6 +3,8 @@ class CartsController < ApplicationController
     before_action :set_cart
     
     def index
+        
+
         @line_items = LineItem.all
 
         
