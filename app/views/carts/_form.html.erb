@@ -1,6 +1,6 @@
 
 <!-- Divide the content into 4 rows-->
-<div class="container">
+<div id="app" class="container">
     <!-- Basic cart info like Product, Price... etc.-->
     <div id="title" class="row">
         <span class="col-xs-6">PRODUCT</span>
@@ -34,26 +34,29 @@
                 <p><%=Product.find(line_item.product_id).price%></p>
             </span>
             
-            <span id="quantity" class="col-xs-2">
             
-            <!-- Rails way
-            BOX
-            -->
-            
-            
-            <br>
-            
-            <span id="remove">
-            <!-- Rail way 
-            <%= link_to 'Remove', '#' %>
-            -->
-            </span>
+            <div id="quantity" class="col-xs-2">
+                <qty-adjust></qty-adjust>
+                
+
+                <br>
+                <p id="remove_button">
+                <!-- TODO: use AJAX on this button -->
+                <%= link_to 'Remove', '#' %>
+                </p>
+            </div>
             
             
-            </span>
-            <span id="total" class="col-xs-2 push-right">
-            USD$XXX.OO
-            </span>
+            
+            
+            
+            
+            
+            
+            
+            <item-total></item-total>
+            
+            
         </div>
 
       <% end %>
@@ -63,22 +66,30 @@
         <!-- Checkout info -->
         <div id="info" class="row">
             <span id="custom_notice">Customs are not included in the price of goods.</span>
-            <span id="subtotal" class="pull-right">Subtotal USD$XXX.**</span>
+            
+            <all-subtotal></all-subtotal>
+            <!-- Original template
+            <span id="subtotal" class="pull-right">Subtotal USD${{subtotal}}</span>
+            -->
         </div>
 
         <!-- Notes and cart actions -->
         <!--TODO: As Vue is applied, don't make a update button -->
         <div id="notes_action" class="row">
             <div id="notes" class="col-xs-8">
-                <p><%= f.label :notes %></p>
-                <p><%= f.text_area :notes %></p>
+                <h3><%= f.label :notes %></h3>
+                <!-- FIXME: limit min-height of text_area, but is the proportion fixed? -->
+                <p><%= f.text_area :notes, style:"width: 100%"  %></p>
             </div>
 
             <div id="action" class="col-xs-4">
                 <p class="pull-right"><i>Shipping will be calculated at checkout.</i></p>
                 <br>
                 <br>
-                <p class="pull-right"><%= button_to "CHECK OUT", '#' %></p>
+                <p class="pull-right">
+                <!--TODO: Replace with Vue here, no need to use AJAX for this button-->
+                <%= button_to "CHECK OUT", '#' %>
+                </p>
             </div>
         
         </div>
@@ -102,4 +113,4 @@
 
 
 
-<!-- TODO: add column "note" to "carts" table -->
+

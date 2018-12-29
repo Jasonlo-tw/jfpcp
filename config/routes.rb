@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'line_items/create'
-
-  get 'line_items/update'
-
-  get 'line_items/destroy'
+  
+  
 
   # FIXME:   the routes here are all replaced with "resources", should be replaced to correct ones when the planning is done.
 
@@ -42,7 +39,7 @@ Rails.application.routes.draw do
   resources :line_items, only: [:create, :update, :destroy]
   
 
-  # Account utility
+  # Account utility, or just use devise?
   # resources :account do
   #   get :login
   #   get :register
@@ -70,6 +67,13 @@ Rails.application.routes.draw do
 
   # Checkout process
   resources :carts
+
+  # "APIs" for Rails to access line_items, not revealing to users
+  get 'line_items/create'
+
+  get 'line_items/update'
+
+  get 'line_items/destroy'
   
   
 

@@ -1,0 +1,27 @@
+<!-- TODO: use two-way binding on quantity -->
+                
+<template>
+  <div id="quantity_adjust">
+    <!-- Decrease qty -->
+    <button type="button" id="dec" class="border-dark" @click="$emit('decQuantity')">-</button>
+
+    <!-- Item quantity -->
+    <span type="button" id="qty" class="border-dark">{{itemQuantity}}</span>
+
+    <!-- Increase itemQuantity -->
+    <button type="button" id="inc" class="border-dark" @click="itemQuantity++">+</button>
+  </div>
+</template>   
+
+<script>
+export default {
+  data: function () {
+    return {
+      itemQuantity: 1
+
+    };
+
+  }
+}
+
+</script>

@@ -12,4 +12,7 @@ module CurrentCart
         end
     end
 
+    # This implementation generates many carts in database, but maybe it wouldn't be harmful or can be neglected?
+    # TODO: what about deleting cart as user's session expires? But after a cart is deleted, would the newly generated cart use a previously generated (but with its cart deleted) id?
+
 end
