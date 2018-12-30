@@ -3,7 +3,7 @@
 <template>
   <div id="quantity_adjust">
     <!-- Decrease qty -->
-    <button type="button" id="dec" class="border-dark" @click="$emit('decQuantity')">-</button>
+    <button type="button" id="dec" class="border-dark" @click="itemQuantity--">-</button>
 
     <!-- Item quantity -->
     <span type="button" id="qty" class="border-dark">{{itemQuantity}}</span>

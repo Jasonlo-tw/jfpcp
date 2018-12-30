@@ -1,6 +1,8 @@
 
+
+
 <!-- Divide the content into 4 rows-->
-<div id="app" class="container">
+<div id="form" class="container">
     <!-- Basic cart info like Product, Price... etc.-->
     <div id="title" class="row">
         <span class="col-xs-6">PRODUCT</span>
@@ -11,13 +13,29 @@
         <hr>
     </div>
     
-
+    
 
     <!-- Line item info-->
     <%= form_for :cart do |f| %>
       <% @line_items.each do |line_item| %>
+
+    
+
+        
     
         <div id="content" class="row">
+
+            <!-- This tag prepares controller data of line_item and transform to data- attribute for Vue to manipulate -->
+            <%= content_tag :div,
+            id: "lineitem-data",
+                data: {
+                id: line_item.id,
+                price: line_item.price,
+                quantity: line_item.quantity
+            } do %>
+            <% end %>
+            
+            
             <span id="product_name" class="col-xs-2">
                 <!--FIXME: put the actual image after the function is finished-->
                 <p><%= image_tag 'products/dummy.png' %></p>
@@ -31,31 +49,23 @@
             </span>
 
             <span id="price" class="col-xs-2">
-                <p><%=Product.find(line_item.product_id).price%></p>
+                <%= Product.find(line_item.product_id).price  %>
             </span>
             
             
             <div id="quantity" class="col-xs-2">
+                <!--TODO: Use dropdown for quantity, then post to line_items controller to immediately update data -->
                 <qty-adjust></qty-adjust>
                 
 
                 <br>
                 <p id="remove_button">
-                <!-- TODO: use AJAX on this button -->
+                <!-- TODO: use AJAX :delete on this button with confirm -->
                 <%= link_to 'Remove', '#' %>
                 </p>
             </div>
             
-            
-            
-            
-            
-            
-            
-            
-            
-            <item-total></item-total>
-            
+            <div id="total" class="col-xs-2 push-right"><item-total></item-total></div>
             
         </div>
 
@@ -65,12 +75,12 @@
 
         <!-- Checkout info -->
         <div id="info" class="row">
-            <span id="custom_notice">Customs are not included in the price of goods.</span>
+            <span id="custom_notice">*Customs are not included in the price of goods.</span>
             
-            <all-subtotal></all-subtotal>
-            <!-- Original template
+            
+            
             <span id="subtotal" class="pull-right">Subtotal USD${{subtotal}}</span>
-            -->
+            
         </div>
 
         <!-- Notes and cart actions -->
@@ -98,6 +108,26 @@
 
 
 </div>
+
+<!-- Failed implementation:
+As Vue is pretty awesome with live data replacement, I wanted to use it to set quantity and then calculate item's total price and subtotal without refreshing page, then post all of the data to controller.
+However this method is a bit hard and not so imperative for me now, since:
+1. It would be hard to retrieve data from multiple same-named Vue component instances.
+2. Data formats are not aligned between Rails and Vue.
+3. Indeed, 2. can be overcome by using JSON for alignment. Rails serves as API and sends JSON for Vue to process, then Vue POSTs JSON to Rails controller.
+This method is kind of isomorphic, not so suitable for me that wants to focus on backend for now. BTW I'm not certain how to process JSONified data, and it may not be the fastest implementation, cool though, the priority should be finishing this demo project ASAP.
+-->
+<!-- Proposed implementation for live data replacement:
+1. Use f.select to show dropdown (defaulted 1 as it is in schema). The item total and subtotal can be calculated at this stage using defaults.
+2. POST with AJAX to line_items controller and save to database immediately.
+3. Write a VanillaJS to listen to quantity change, then response with AJAX change for corresponding data. Remember to preventDefault()
+
+This method may not be so smooth though, it's still better than the original JFP site which needs to "update cart" and refresh.
+-->
+
+<!-- Latest thoughts, see carts.js-->
+<!-- HIGHWAY to WORKING ON HELL!! -->
+
 
 
 

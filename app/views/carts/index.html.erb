@@ -10,6 +10,11 @@
 
 <%= render 'form' %>
 
-<!-- Always remember to include JS at the end! If it is included to any element it refers to, the execution order causes problem -->
-<%=  javascript_pack_tag 'cart' %>
+<!-- Always remember to include JS at the end! If it is included before any element it refers to, the execution order causes problem -->
+
+
+<%= javascript_pack_tag 'carts' %>
+
+
+
 
