@@ -9,5 +9,6 @@
 
 //= require jquery
 //= require bootstrap-sprockets
+//= require rails-ujs
 
 console.log('Hello World from Webpacker')

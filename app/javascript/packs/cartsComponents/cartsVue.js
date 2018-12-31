@@ -3,9 +3,9 @@ import TurbolinksAdapter from 'vue-turbolinks';
 import Vue from 'vue/dist/vue.esm';
 
 // Components
-import QtyAdjust from './cartsComponents/QtyAdjust.vue.erb';
-import ItemTotal from './cartsComponents/ItemTotal.vue.erb';
-import ItemPrice from './cartsComponents/ItemPrice.vue.erb'
+// import QtyAdjust from './cartsComponents/QtyAdjust.vue.erb';
+// import ItemTotal from './cartsComponents/ItemTotal.vue.erb';
+// import ItemPrice from './cartsComponents/ItemPrice.vue.erb'
 
 // import App from '../app.vue'
 
@@ -52,6 +52,9 @@ Vue.use(TurbolinksAdapter)
 
 // Create Vue instance to manipulate data.
 
+
+
+
 var vm = new Vue({
     el: '#form',
     data: function () {
@@ -60,21 +63,9 @@ var vm = new Vue({
         };
 
     },
-
-
     components: {
-        ItemTotal,
-        QtyAdjust,
-        ItemPrice
+        QtyAdjust
     }
-
-
-
-
-
-
-
-
 });
 
 // TODO: use queryselectorall to implement subtotal

@@ -1,25 +1,27 @@
+<head>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+
 <div class="container">
       <div class="row">
         
         <div class="col-md-4 text-center">
           <div id="get-in-touch">
-            <h3><b>Get in touch with us!</b></h3>
+            <h4><b>Get in touch with us!</b></h4>
             
-            <!-- TODO: Use 'Font Awesome' to implement social icons on layout and partials -->
-            <!-- https://www.w3schools.com/icons/fontawesome_icons_brand.asp -->
-            <!-- https://www.injerry.com/blog-view.php?PID=5&sn=26 -->
-            <%= link_to 'facebook.gif', 'https://www.facebook.com/JumpFromPaper?fref=ts' %><br>
-            <%= link_to 'instagram.gif' , 'https://www.instagram.com/jumpfrompaper/' %><br>
-            <%= link_to 'pinterest.gif' , 'https://www.pinterest.com/jumpfrompaperbag/boards/' %><br>
-            <%= link_to 'tumblr.gif' , 'http://jumpfrompaper.tumblr.com/' %><br>
-            <%= link_to 'youtube.gif' , 'https://www.youtube.com/channel/UCMf0VyC1G89DGKV2dtbx1aQ' %>
+            
+            <%= link_to ('<i class="fab fa-facebook" style="font-size:24px;color:gray"></i>').html_safe, 'https://www.facebook.com/JumpFromPaper?fref=ts' %>&nbsp &nbsp
+            <%= link_to ('<i class="fab fa-instagram" style="font-size:24px;color:gray"></i>').html_safe, 'https://www.instagram.com/jumpfrompaper/' %>&nbsp &nbsp
+            <%= link_to ('<i class="fab fa-pinterest-p" style="font-size:24px;color:gray"></i>').html_safe, 'https://www.pinterest.com/jumpfrompaperbag/boards/' %>&nbsp &nbsp
+            <%= link_to ('<i class="fab fa-tumblr" style="font-size:24px;color:gray"></i>').html_safe , 'http://jumpfrompaper.tumblr.com/' %>&nbsp &nbsp
+            <%= link_to ('<i class="fab fa-youtube" style="font-size:24px;color:gray"></i>').html_safe, 'https://www.youtube.com/channel/UCMf0VyC1G89DGKV2dtbx1aQ' %>
           
           </div>
         </div>
 
         <div class="col-md-4 text-center">
           <div id="about-us">
-            <h3><b>About Us</b></h3>
+            <h4><b>About Us</b></h4>
             <%= link_to 'Our Story', '#' %><br>
             <%= link_to 'Taiwan Pinkoi Store', 'https://www.pinkoi.com/store/jumpfrompaper' %><br>
             <%= link_to 'China Website', 'https://www.jumpfrompaper.cn/' %>
@@ -29,7 +31,7 @@
 
         <div class="col-md-4 text-center">
           <div id="customer-service">
-            <h3><b>Customer Service</b></h3>
+            <h4><b>Customer Service</b></h4>
             <%= link_to 'FAQs', '#' %><br>
             <%= link_to 'Delivery Region', '#' %><br>
             <%= link_to 'Contact Us', '#' %><br>

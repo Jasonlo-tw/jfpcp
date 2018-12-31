@@ -19,8 +19,12 @@ class LineItemsController < ApplicationController
     @line_item = @cart.line_items.build(
       product: product,
       cart_id: @cart.id,
-      price: product.price
+      price: product.price, 
+      # It's ok to hardcode as the quantity defaults 1
+      total: product.price * 1
     )
+
+    # TODO: implement inventory authentication
 
 
     @line_item.save!
@@ -34,9 +38,26 @@ class LineItemsController < ApplicationController
     
   end
 
-  def update
+  def update_quantity
+    # Define line_item id by params
+    id = params[:id]
+    
+    # Define quantity by params; therefore understanding params is important...
+    quantity = params[:line_item][:quantity]
+
+    @change_item = LineItem.find(id)
+
+    @change_item.update( 
+      quantity: quantity, 
+      total: @change_item.price * quantity.to_f
+      )
+
   end
 
   def destroy
   end
+
+
+
+
 end

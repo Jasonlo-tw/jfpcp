@@ -66,7 +66,8 @@ Rails.application.routes.draw do
   # end
 
   # Checkout process
-  resources :carts
+  get 'carts', to: 'carts#index'
+  post 'carts', to: 'line_items#update_quantity'
 
   # "APIs" for Rails to access line_items, not revealing to users
   get 'line_items/create'
