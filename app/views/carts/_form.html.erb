@@ -14,7 +14,7 @@
     </div>
     
     
-
+    <div id="item-info">
     <!-- Row, may be many: Line item info-->
       <% @line_items.each do |line_item| %>
         <%= form_for :line_item, remote: true, authenticity_token: true do |f| %>
@@ -43,17 +43,17 @@
             </span>
             
             
-            <div id="quantity-<%=line_item.id %>" class="col-xs-2">
+            <div id="quantity" class="col-xs-2">
                 
                 <!-- TODO: Add inventory to products, then apply upper limit of quantity by inventory amount -->
-                <%= f.select :quantity, 1..10, {}, onchange: 'this.form.submit();' %>
+                <%= f.select :quantity, options_for_select(1..10, selected: line_item.quantity), {}, onchange: 'this.form.submit(); '  %>
                 <!-- Explanation: as the quantity changes, the form will be submitted and posted to 'carts', ie. line_items#update_quantity. As the params is correctly filled in, the controller action will be triggered and updates DB data. -->
                 
                 
 
                 <br>
                 <p id="remove_button">
-                <!-- TODO: use AJAX :delete on this button with confirm -->
+                <!-- TODO: it's ok to refresh without AJAX, I've have enough of it... -->
                 <%= link_to 'Remove', '#' %>
                 </p>
             </div>
@@ -65,6 +65,7 @@
 
         <% end %>
       <% end %>
+    </div>
 
     
 
@@ -78,9 +79,10 @@
             
             <!--TODO: As the quantity is updated to DB, return the recalculated total with AJAX replacing HTML...
             may fail as there's no freshing.
-            If so,  write JS to track all the prices and quantities and calculate manually.
+            If so,  write JS to track all the prices and quantities, then update innertext of this element.
             -->
-            <span id="subtotal" class="pull-right">Subtotal USD$<%= LineItem.sum(:total) %></span><br>
+            <span id="subtotal" class="pull-right">Subtotal USD$<%= @line_items.sum(:total) %> </span><br>
+            <!-- This is a wrong total, not considering the actual quantity in DB. However as the quantity dropdowns are defaulted 0, it would't be problematic. -->
 
             <span class="pull-right">
                 
@@ -131,7 +133,7 @@ This method may not be so smooth though, it's still better than the original JFP
 -->
 <!-- HIGHWAY to WORKING ON HELL!! -->
 
-<% javascript_pack_tag 'carts' %>
+<%= javascript_pack_tag 'carts' %>
 
 
 
