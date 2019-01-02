@@ -6,6 +6,24 @@ class Cart < ApplicationRecord
     # Cart is only a container for products to put in, like a notebook has many pages. Therefore cart itself cannot well present the content inside, we need to create another model LineItem to represent this relationship.
     has_many :line_items,dependent: :destroy
 
+    def add_product(product, cart_id, product_id)
+        current_item = line_items.find_by(product_id: product_id)
+
+        if !current_item
+            current_item = line_items.build(
+            product_id: product_id,
+            cart_id: cart_id,
+            price: product.price, 
+            total: product.price * 1
+            # It's ok to hardcode as the quantity defaults 1 when added to cart. It wouldn't be ok for other products like toilet paper.
+            )
+        else
+            current_item.quantity += 1
+        end
+        current_item
+
+    end
+
     
     
 end
