@@ -70,15 +70,14 @@ Rails.application.routes.draw do
   post 'carts', to: 'line_items#update_quantity'
 
   # "APIs" for Rails to access line_items, not revealing to users
-  get 'line_items/create'
-
-  get 'line_items/update'
-
-  get 'line_items/destroy'
-  
+  resources :line_items
   
 
-# Admin functionality
+  
+  
+  
+
+# TODO: Admin functionality
   # resources :admin
 
 end

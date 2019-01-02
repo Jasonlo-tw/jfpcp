@@ -3,6 +3,7 @@ class LineItemsController < ApplicationController
   include CurrentCart
 
   before_action :set_cart
+  
 
   
   
@@ -15,21 +16,34 @@ class LineItemsController < ApplicationController
     
 
     # Add new line item to cart by product then save
-    # FIXME: In first iteration, user is redirect to cart and shown flash. Write JS to prevent default
-    @line_item = @cart.line_items.build(
-      product: product,
-      cart_id: @cart.id,
-      price: product.price, 
-      # It's ok to hardcode as the quantity defaults 1
-      total: product.price * 1
-    )
+
+    # Just add new line_item record when there's no existed one; else if a cart has a lproduct with existed record, just add its quantity
+
+    
+
+    if existed_line.count == 0
+    
+      @line_item = @cart.line_items.build(
+        product: product,
+        cart_id: @cart.id,
+        price: product.price, 
+        # It's ok to hardcode as the quantity defaults 1 when added to cart. It wouldn't be ok for other products like toilet paper.
+        total: product.price * 1
+      )
+      @line_item.save!
+    else
+      @line_item = existed_line.update(quantity: 'quantity+1')
+
+    end
 
     # TODO: implement inventory authentication
 
+    
+    
+    
+    
 
-    @line_item.save!
-
-    # TODO: style the flash
+    redirect_back(fallback_location: collections_path) 
     flash[:notice] = 'Added to cart'
 
     
@@ -55,7 +69,24 @@ class LineItemsController < ApplicationController
   end
 
   def destroy
+    id = params[:id]
+
+    
+    line_item = LineItem.find(id)
+
+    line_item.destroy if line_item.cart_id = session[:cart_id]
+
+    redirect_to carts_path
+
+    flash[:notice] = "Item deleted."
   end
+
+  private
+
+  def existed_line
+    LineItem.where("cart_id = ? and product_id = ?", "@cart.id", "product.id")
+  end
+  
 
 
 
