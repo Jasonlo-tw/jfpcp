@@ -1,0 +1,34 @@
+<%= @lineitems.each do |line_item|%>
+    <div div="item-list" class="row">
+        <div id="image" class="col-xs-3">
+            <!--FIXME: put the actual image after the function is finished-->
+            <%= image_tag 'products/dummy.png' %></p>
+        </div>
+
+        <div id="item_name" class="col-xs-5">
+            <%= Product.find(product_id).product_name %>
+        </div>
+
+        <div id="total" class="col-xs-4">
+            <%= line_item.total %>
+        </div>
+    
+
+    
+
+    </div>
+<% end %>
+    <hr>
+
+    <div id="coupon" class="row">
+        <%= form_for :order,  do |f| %>
+            
+        <% end %>
+
+    </div>
+
+    <hr>
+
+    <div id="subtotal_fee" class="row"></div>
+
+    <div id="total" class="row"></div>

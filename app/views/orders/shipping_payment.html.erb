@@ -1,2 +1,42 @@
-<h1>Orders#shipping_payment</h1>
-<p>Find me in app/views/orders/shipping_payment.html.erb</p>
+<!-- A more "formal" way for "contact" and "shipping_payment" should be writing #new and render info inside of them.
+But as I want to update all of the data on screen, let's just separate it into two different pages;
+btw it's more convenient for path designation.
+-->
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="page" class="content">
+        <div class="row">
+            <div class="col-md-8" id="info">
+
+            <%= render 'footer_terms_policies' %>
+            </div>
+            <div id="item-info" class="col-md-4">
+            <%= render 'item_info' %>
+            </div>
+        
+        
+        
+        
+        
+        </div>
+    
+    
+    
+    
+    
+    </div>
+
+
+
+
+</body>
+</html>
