@@ -3,51 +3,19 @@ class LineItemsController < ApplicationController
   include CurrentCart
 
   before_action :set_cart
-  
-
-  
-  
-
-  
-
+ 
 
   def create
     product = Product.find(params[:product_id])
 
+    # Add a new line item to cart by product. 
+    # There's two layers of actions here:
+    # 1. controller initializes an instance of line_item for view to use
+    # 2. model interacts with DB then saves operation
     @line_item = @cart.add_product(product, @cart.id, product.id)
-      
-      
-      # line_items.build(
-      #   product: product,
-      #   cart_id: @cart.id,
-      #   price: product.price, 
-      #   # It's ok to hardcode as the quantity defaults 1 when added to cart. It wouldn't be ok for other products like toilet paper.
-      #   total: product.price * 1
-      # )
 
-      
+    # For temporary relief or experimental implementation, we might let controller interact with DB like using save!. This method might be feasible when the logic is still simple simple (like simply adjusting quantity in line_items#update_quantity), however the behavior of whole app would be problematic and makes controller heavy. The correct way should be separating duties: only let model interact with DB then send data to controller, and controller prepares the data taken from model then send to view.
     
-
-    # Add new line item to cart by product then save
-
-    # Just add new line_item record when there's no existed one; else if a cart has a lproduct with existed record, just add its quantity
-
-    
-
-    # if existed_line.count == 0
-    
-    #   @line_item = @cart.line_items.build(
-    #     product: product,
-    #     cart_id: @cart.id,
-    #     price: product.price, 
-    #     # It's ok to hardcode as the quantity defaults 1 when added to cart. It wouldn't be ok for other products like toilet paper.
-    #     total: product.price * 1
-    #   )
-    #   @line_item.save!
-    # else
-    #   @line_item = existed_line.update(quantity: 'quantity+1')
-
-    # end
 
     # TODO: implement inventory authentication
 
@@ -80,6 +48,8 @@ class LineItemsController < ApplicationController
       total: @change_item.price * quantity.to_f
       )
 
+    
+
   end
 
   def destroy
@@ -97,9 +67,9 @@ class LineItemsController < ApplicationController
 
   private
 
-  def existed_line
-    LineItem.where("cart_id = ? and product_id = ?", "@cart.id", "product.id")
-  end
+  # def existed_line
+  #   LineItem.where("cart_id = ? and product_id = ?", "@cart.id", "product.id")
+  # end
   
 
 

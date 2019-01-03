@@ -9,13 +9,14 @@ class Cart < ApplicationRecord
     def add_product(product, cart_id, product_id)
         current_item = line_items.find_by(product_id: product_id)
 
+        # Add new line_item record when there's no existed one; else if a cart has a product with existed record, just add its quantity
         if !current_item
             current_item = line_items.build(
             product_id: product_id,
             cart_id: cart_id,
             price: product.price, 
             total: product.price * 1
-            # It's ok to hardcode as the quantity defaults 1 when added to cart. It wouldn't be ok for other products like toilet paper.
+            # It's ok to hardcode as the quantity defaults 1 when added to cart, which is just like the behaviors of Pinkoi customers (though they can adjust quantity when adding to cart... usually I would only buy one piece of each product).
             )
         else
             current_item.quantity += 1
