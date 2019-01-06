@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
 
-  
-  
-
-
-
 
   # as the landing page only renders the predefined partials, simply give its controller a dummy #home action and thus the view, not even #index, #show...etc.
   root 'pages#home' 
@@ -70,8 +65,9 @@ Rails.application.routes.draw do
   get 'carts', to: 'carts#index'
   post 'carts', to: 'line_items#update_quantity'
 
-  get 'carts/:cart_id/contact_info', to: 'carts#contact_info'
-  post 'carts/:cart_id/contact_info', to: 'carts#contact_info_create'
+  resources :contact_infos
+
+  resources :orders
 
   
   

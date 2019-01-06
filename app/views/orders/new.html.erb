@@ -17,10 +17,10 @@ btw it's more convenient for path designation.
         <div class="row">
             <div class="col-md-8" id="info">
 
-            <%= render 'footer_terms_policies' %>
+            
             </div>
             <div id="item-info" class="col-md-4">
-            <%= render 'item_info' %>
+            <%= render 'contact_infos/item_info', { line_items: @line_items, cart: @cart } %>
             </div>
         
         
