@@ -86,7 +86,7 @@
 
             <span class="pull-right">
                 
-                <%= button_to "CHECK OUT", '#' %>
+                <button class="btn"><%= link_to "CHECK OUT", controller: "carts", action: "contact_info", cart_id: @cart.id %></button>
             </span>
             
         </div>

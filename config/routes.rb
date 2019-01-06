@@ -3,13 +3,8 @@ Rails.application.routes.draw do
   
   
 
-  get 'orders/contact'
 
-  get 'orders/shipping_payment'
 
-  get 'orders/create'
-
-  # FIXME:   the routes here are all replaced with "resources", should be replaced to correct ones when the planning is done.
 
   # as the landing page only renders the predefined partials, simply give its controller a dummy #home action and thus the view, not even #index, #show...etc.
   root 'pages#home' 
@@ -74,6 +69,9 @@ Rails.application.routes.draw do
   # Checkout process
   get 'carts', to: 'carts#index'
   post 'carts', to: 'line_items#update_quantity'
+
+  get 'carts/:cart_id/contact_info', to: 'carts#contact_info'
+  post 'carts/:cart_id/contact_info', to: 'carts#contact_info_create'
 
   
   

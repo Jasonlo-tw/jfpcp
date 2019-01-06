@@ -1,0 +1,49 @@
+
+<%= line_items.each do |line_item|%>
+    <div id="item-list" class="row">
+        <div id="image" class="col-xs-3">
+            <!--FIXME: put the actual image after the function is finished-->
+            <%= image_tag 'products/dummy.png' %></p>
+        </div>
+
+        <div id="item_name" class="col-xs-5">
+            <%= Product.find_by(id: line_item.product_id).product_name %>
+        </div>
+
+        <div id="total" class="col-xs-4">
+            <%= line_item.total %>
+        </div>
+    
+            <!-- FIXME: Why the f**king line_items content appear again after everything's done???-->
+    
+
+    </div>
+<% end %>
+
+
+    <hr>
+
+    <div id="coupon" class="row">
+        <input type="text" placeholder="Gift cart or discount code">
+        <button type="submit">Apply</button>
+
+    </div>
+
+    <hr>
+
+    <div id="subtotal_fee" class="row">
+        <span>Subtotal</span>
+        <!-- FIXME: refactor this to helper?-->
+        <span class="pull-right">USD$<%= LineItem.where(cart_id: cart.id).sum(:total) %></span>
+        <!-- TODO: implement shipping-->
+        <br>
+        <span>Shipping</span>
+            
+        <span>Calculated at next step</span>
+    </div>
+
+    <div id="total" class="row">
+    <span>USD $<%= LineItem.where(cart_id: cart.id).sum(:total) %></span>
+    </div>
+
+

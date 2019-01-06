@@ -1,0 +1,101 @@
+
+
+<!-- A more "formal" way for "contact" and "shipping_payment" should be writing #new and render info inside of them.
+But as I want to update all of the data on screen, let's just separate it into two different pages;
+btw it's more convenient for path designation.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    
+</head>
+<body>
+    <div id="page" class="container">
+        <div class="row">
+            <div class="col-xs-8" id="info">
+                <div id="brand-logo" class="row text-center"><%= image_tag 'JumpFromPaper_Logo-01_250x.png' %></div>
+                <!-- TODO: checkout process nav -->
+
+                <%= form_for @contact_info  do |f| %>
+                    <!-- FIXME: hardcoded field sizes for now, need to modify to dynamically changing -->
+                    <div id="contact" class="row">
+                    <span>Contact information</span>
+                    <span class="pull-right">Already have an account? <a href="#">Log in</a></span>
+                    
+                    <p><%= f.text_field :email, placeholder: "Email", size: 65 %></p>
+                    
+                    </div>
+
+                    <!-- TODO: member mailing-->
+                    
+
+                    <div id="address" class="row">
+                    <span>Shipping address</span>
+                    <br>
+                    <%= f.text_field :first_name, placeholder: "First name", size: 30 %>
+                    <%= f.text_field :last_name, placeholder: "Last name", size: 30 %>
+                    <%= f.text_field :address, placeholder: "Address", size: 65 %>
+                    <%= f.text_field :building_optional, placeholder: "Apartment, suite, etc. (optional) ", size: 65 %>
+                    <%= f.text_field :city, placeholder: "City", size: 65 %>
+                    <br>
+                    <!-- TODO: city-state gem-->
+                    <%= f.country_select :country, prompt: "Please select country", size: 25 %>
+                    <br>
+                    <%= f.text_field :province, placeholder: "province", size: 17%>
+                    <%= f.text_field :post_code, placeholder: "Postcode", size: 17 %>
+
+                    <br>
+                    <span id="return">< Return to cart</span>
+                    <span id="submit" class="pull-right"><%= f.submit "Continue to shipping method" %></span>
+
+                    <div class="row">
+                    </div>
+                    </div>
+
+                    
+                    
+
+                  
+                <% end %>
+
+
+            
+            
+            
+            
+            </div>
+            <div id="item-info" class="col-xs-4">
+            <%= render 'item_info', { line_items: LineItem.where(cart_id:  @cart.id), cart: @cart } %>
+            </div>
+        
+        
+        
+        
+        
+        </div>
+
+        
+    
+    
+    
+    
+    
+    </div>
+    </div>
+</div>
+
+
+
+
+</body>
+
+<footer>
+    
+</footer>
+</html>
