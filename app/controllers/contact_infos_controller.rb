@@ -14,7 +14,7 @@ class ContactInfosController < ApplicationController
         @contact_info = @cart.add_contact_info(contact_params)
         
 
-        if @contact_info.save
+        if ContactInfo.exists?(cart_id: @cart.id)
             redirect_to new_order_path
         else
             redirect_back(fallback_location: {action: "new"})

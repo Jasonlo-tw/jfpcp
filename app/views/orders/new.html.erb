@@ -13,21 +13,79 @@ btw it's more convenient for path designation.
     <title>Document</title>
 </head>
 <body>
-    <div id="page" class="content">
+    <div id="page" class="content container">
+        
+
+
+    <form>
         <div class="row">
             <div class="col-md-8" id="info">
 
+                <div id="brand-logo" class="row text-center"><%= image_tag 'JumpFromPaper_Logo-01_250x.png' %></div>
+                <!-- TODO: checkout process nav -->
+
+                <div class="row">
+                    <div id="contact" class="col-xs-2">
+                        <span>Contact</span>
+                    </div>
+
+                    <div class="col-xs-10">
+                        <span><%= @contact_info.email%></span>
+                    </div>
+                </div>
+                        
+                    
+
+                <div class="row">
+                    <div id="address" class="col-xs-2">
+                        <span>Ship to</span>
+                    </div>
+                        
+                    <div class="col-xs-10">
+                        <span>
+                        <%= "#{@contact_info.address}, #{@contact_info.building_optional},#{@contact_info.post_code},#{@contact_info.city},#{@contact_info.country}" %>
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="row">Shipping Method</div>
+                
+                <div id="dhl" class="row">
+                        <div class="col-xs-10">DHL Express Worldwide</div>
+                        <div class="col-xs-2"><%= @shipping%></div>
+                </div>
+                        
+                    
+                <br>
+
+                <div id="action" class="row">
+                    <span id="return">< Return to cart</span>
+                        <span id="submit" class="pull-right"><%=  link_to 'Continue to shipping method', '#'  %></span>
+                </div>
+
+
+                    
+
+                
+
             
             </div>
+            
             <div id="item-info" class="col-md-4">
-            <%= render 'contact_infos/item_info', { line_items: @line_items, cart: @cart } %>
+                <%= render 'contact_infos/item_info', { line_items: @line_items, cart: @cart } %>
             </div>
+
+             
+
+                    
         
         
         
         
         
         </div>
+    </form>
+   
     
     
     
