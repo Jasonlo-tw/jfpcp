@@ -38,12 +38,22 @@
         <!-- TODO: implement shipping-->
         <br>
         <span>Shipping</span>
-            
-        <span>Calculated at next step</span>
+            <% if request.original_url.include?  "contact_infos"  %>
+                <span>Calculated at next step</span>
+            <% else %>
+                <span>USD$<%= @shipping%></span>
+            <% end%>
     </div>
 
     <div id="total" class="row">
-    <span>USD $<%= LineItem.where(cart_id: cart.id).sum(:total) %></span>
+
+        <% if request.original_url.include?  "contact_infos" %>
+                <span>USD $<%= LineItem.where(cart_id: cart.id).sum(:total) %></span>
+            <% else %>
+                <span>USD $<%= LineItem.where(cart_id: cart.id).sum(:total) +@shipping %></span>
+            <% end%>
+
+        
     </div>
 
 

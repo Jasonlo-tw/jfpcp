@@ -73,8 +73,12 @@ btw it's more convenient for path designation.
                     It will be updated when the order is really created.-->
 
                     <br>
-                    <span id="return">< Return to cart</span>
-                    <span id="submit" class="pull-right"><%= f.submit "Continue to shipping method" %></span>
+                    <button id="return" class="btn"><%= link_to "< Return to cart", carts_path(@line_items) %></button>
+                    
+                    
+                    
+                    
+                    <button id="submit" class="pull-right"><%= f.submit "Continue to shipping method" %></button>
 
                     
                     </div>

@@ -28,11 +28,16 @@ btw it's more convenient for path designation.
                     <div id="contact" class="col-xs-2">
                         <span>Contact</span>
                     </div>
+                    
+                    
 
                     <div class="col-xs-10">
                         <span><%= @contact_info.email%></span>
                     </div>
+                    
                 </div>
+                
+                <hr>
                         
                     
 
@@ -48,20 +53,38 @@ btw it's more convenient for path designation.
                     </div>
                 </div>
                 
-                <div class="row">Shipping Method</div>
+                <hr>
+
                 
-                <div id="dhl" class="row">
-                        <div class="col-xs-10">DHL Express Worldwide</div>
-                        <div class="col-xs-2"><%= @shipping%></div>
+                
+                <div id="shipping" class="row">
+                    <div id="method" class="col-xs-2">Shipping Method</div>
+                        
+                    <div class="col-xs-10">
+                        <span>DHL Express Worldwide</span>
+                        <span class="col-xs-2 pull-right">USD$<%= @shipping%></span>
+                    </div>
+                        
+                
+
                 </div>
+
+                <hr>
                         
                     
                 <br>
 
                 <div id="action" class="row">
-                    <span id="return">< Return to cart</span>
-                        <span id="submit" class="pull-right"><%=  link_to 'Continue to shipping method', '#'  %></span>
+                    
+
+                    <button id="return" class="btn"><%= link_to "< Return to customer information", new_contact_info_path(@contact_info) %></button>
+
+                    <button id="submit" class="pull-right"><%=  link_to 'Confirm Order', '#'  %></button>
+
+                    
                 </div>
+
+                
 
 
                     
@@ -72,7 +95,7 @@ btw it's more convenient for path designation.
             </div>
             
             <div id="item-info" class="col-md-4">
-                <%= render 'contact_infos/item_info', { line_items: @line_items, cart: @cart } %>
+                <%= render 'contact_infos/item_info', { line_items: @line_items, cart: @cart, shipping: @shipping } %>
             </div>
 
              

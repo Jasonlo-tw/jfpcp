@@ -7,7 +7,8 @@ class OrdersController < ApplicationController
 
     @contact_info = ContactInfo.find_by(cart_id: @cart.id)
 
-    @shipping = "USD$30.00"
+    # FIXME: deliver the value to view first, need to attach it into DB
+    @shipping = 30.00
   end
   
 
