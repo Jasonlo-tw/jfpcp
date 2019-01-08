@@ -17,6 +17,14 @@
           <span id="login" class="pull-right">
           <%= link_to 'Log In', user_session_path %>
           </span>
+          <br>
+          <span id="padding_space" class="pull-right">&nbsp &nbsp</span>
+          <span id="login" class="pull-right">
+          <%= link_to 'Check order', '#' %>
+          </span>
+
+
+          <!-- TODO: check order by email or member account -->
 
           
           
@@ -26,8 +34,8 @@
             
           
 
-          <span id="cart">
-          <%= link_to '@cart.line_items.count items in cart ❤ ', carts_path %>
+          <span id="cart" class="pull-right">
+          <%= items_in_cart(@cart.line_items.count, carts_path) %>
           <!-- FIXME: show items count only, as the total price is implemented in JS and hard to track; in addition it is meaningless to show total price at this stage -->
           <!-- FIXME: When an item is added to cart, it should record the cart_id. Implement it in LineItem model. -->
           

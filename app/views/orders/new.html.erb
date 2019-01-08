@@ -17,7 +17,7 @@ btw it's more convenient for path designation.
         
 
 
-    <form>
+    <form >
         <div class="row">
             <div class="col-md-8" id="info">
 
@@ -70,7 +70,8 @@ btw it's more convenient for path designation.
                 </div>
 
                 <hr>
-                        
+
+                <!--TODO: add comments here --> 
                     
                 <br>
 
@@ -79,7 +80,18 @@ btw it's more convenient for path designation.
 
                     <button id="return" class="btn"><%= link_to "< Return to customer information", new_contact_info_path(@contact_info) %></button>
 
-                    <button id="submit" class="pull-right"><%=  link_to 'Confirm Order', '#'  %></button>
+
+                    
+                    <button id="submit" class="pull-right"><%=  link_to 'Confirm Order', orders_path, method: :post  %></button>
+                
+                    <!-- TODO: complete order page and pay with Paypal later (maybe use client-side implementation?)-->
+
+                    
+
+
+                    <!-- TODO: better praceice: redirect to server-side Paypal, generating order at the same time. Order is finished as the payment is done. -->
+                    <!-- TODO: after the order is finished, the customer should be able to check the order by email or with account -->
+                    
 
                     
                 </div>
@@ -120,4 +132,9 @@ btw it's more convenient for path designation.
 
 
 </body>
+
+
+
+
+
 </html>

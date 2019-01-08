@@ -67,7 +67,13 @@ Rails.application.routes.draw do
 
   resources :contact_infos
 
-  resources :orders
+  resources :orders do
+    member do
+      post :paypal
+    end
+  end
+
+  get "/orders/order_complete.html.erb", to: 'orders#order_complete'
 
   
   

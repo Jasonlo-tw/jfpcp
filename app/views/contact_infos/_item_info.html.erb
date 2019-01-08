@@ -1,5 +1,5 @@
 
-<%= line_items.each do |line_item|%>
+<% line_items.each do |line_item|%>
     <div id="item-list" class="row">
         <div id="image" class="col-xs-3">
             <!--FIXME: put the actual image after the function is finished-->
@@ -39,18 +39,21 @@
         <br>
         <span>Shipping</span>
             <% if request.original_url.include?  "contact_infos"  %>
-                <span>Calculated at next step</span>
+                <span class="pull-right">Calculated at next step</span>
             <% else %>
-                <span>USD$<%= @shipping%></span>
+                <span class="pull-right">USD$<%= @shipping%></span>
             <% end%>
     </div>
 
+    <hr>
+
     <div id="total" class="row">
+        <span>Total</span>
 
         <% if request.original_url.include?  "contact_infos" %>
-                <span>USD $<%= LineItem.where(cart_id: cart.id).sum(:total) %></span>
+                <span class="pull-right">USD $<%= LineItem.where(cart_id: cart.id).sum(:total) %></span>
             <% else %>
-                <span>USD $<%= LineItem.where(cart_id: cart.id).sum(:total) +@shipping %></span>
+                <span class="pull-right">USD $<%= LineItem.where(cart_id: cart.id).sum(:total) +@shipping %></span>
             <% end%>
 
         
