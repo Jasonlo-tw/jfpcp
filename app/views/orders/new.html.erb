@@ -17,7 +17,7 @@ btw it's more convenient for path designation.
         
 
 
-    <form >
+    <%= form_for @order, url: orders_path, method: :post do |f| %>
         <div class="row">
             <div class="col-md-8" id="info">
 
@@ -71,7 +71,15 @@ btw it's more convenient for path designation.
 
                 <hr>
 
-                <!--TODO: add comments here --> 
+                
+                  <%= f.label :Comments%>
+                  <br>
+                  <%= f.text_area :comments, rows: 3, cols: 50 %>
+                
+
+                <hr>
+
+                
                     
                 <br>
 
@@ -80,9 +88,13 @@ btw it's more convenient for path designation.
 
                     <button id="return" class="btn"><%= link_to "< Return to customer information", new_contact_info_path(@contact_info) %></button>
 
+                    <%= f.submit "Confirm Order", class: 'pull-right'%>
+                    
 
                     
-                    <button id="submit" class="pull-right"><%=  link_to 'Confirm Order', orders_path, method: :post  %></button>
+                    
+                    
+                    
                 
                     <!-- TODO: complete order page and pay with Paypal later (maybe use client-side implementation?)-->
 
@@ -119,7 +131,7 @@ btw it's more convenient for path designation.
         
         
         </div>
-    </form>
+    <% end %>
    
     
     
