@@ -1,8 +1,7 @@
 class ContactInfosController < ApplicationController
-    include CurrentCart
-    before_action :set_cart
+    
 
-    def  new
+    def new  
         @contact_info = ContactInfo.new
 
         @line_items = LineItem.where(cart_id: @cart.id)
@@ -21,6 +20,7 @@ class ContactInfosController < ApplicationController
             flash[:alert] ="Please check your info"
         end
 
+        
 
         
     end

@@ -17,6 +17,7 @@ class Cart < ApplicationRecord
             current_item = line_items.build(
             product_id: product_id,
             cart_id: cart_id,
+            order_id: 1, # set to a dummy one to pass authentication , will correct it on checkout
             price: product.price, 
             total: product.price * 1
             # It's ok to hardcode as the quantity defaults 1 when added to cart, which is just like the behaviors of Pinkoi customers (though they can adjust quantity when adding to cart... usually I would only buy one piece of each product).
@@ -37,6 +38,7 @@ class Cart < ApplicationRecord
             new_contact = new_contact.update(param_info)
         else
             new_contact = build_contact_info(param_info)
+            new_contact.save
         end
 
         

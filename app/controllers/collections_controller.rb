@@ -1,6 +1,6 @@
 class CollectionsController < ApplicationController
   before_action :set_collection, only: :show
-  # before_action :id_finder, only: :show
+  
   
   
   def index

@@ -1,6 +1,5 @@
 class OrdersController < ApplicationController
-  include CurrentCart
-    before_action :set_cart
+  
   
   def  new
     @line_items = LineItem.where(cart_id: @cart.id)
@@ -16,31 +15,37 @@ class OrdersController < ApplicationController
 
   def create
     order_items = LineItem.where(cart_id: @cart.id)
+    contact_info = ContactInfo.find_by(cart_id: @cart.id)
     
-    @total = order_items.sum(:total)
-    @shipping = 30
-    @comments = nil
-    @process = "Payment pending"
+    total = order_items.sum(:total)
+    shipping = 30
+    comments = nil
+    process = "Payment pending"
 
     #TODO: put comments as the functionality is done
-    @comments = nil | nil
+    comments = nil | nil
 
     #TODO: correct it as the devise account functionaity is finished
-    @account = nil | nil
+    account = contact_info.email
 
     
 
-    @order = Order.new(total: @total, 
-                      shipping_fee: @shipping,
-                      comments: @comments,
-                      process: @process,
-                      account: @account, 
+    @order = Order.new(total: total, 
+                      shipping_fee: shipping,
+                      comments: comments,
+                      process: process,
+                      account: account, 
                       process: "Payment pending")
 
                       
     @order.save
 
+    # Update the order_id from dummy one to real one
     order_items.update_all(order_id: @order.id)
+    
+    # At the same time, remember to clear the cart
+    @cart.destroy
+    session[:cart_id] = nil
 
     redirect_to "/orders/order_complete.html.erb"
   end

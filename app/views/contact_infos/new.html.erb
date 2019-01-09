@@ -27,40 +27,43 @@ btw it's more convenient for path designation.
 
                 <%= form_for @contact_info  do |f| %>
                     <!-- FIXME: hardcoded field sizes for now, need to modify to dynamically changing -->
-                    <% if @contact_info.errors.any? %>
-                        <div id="error_explanation">
-                        <h2><%= pluralize(@contact_info.errors.count, "error") %>
-                        prohibited this product from being saved:</h2>
-
-                        <ul>
-                        <% @contact_info.errors.full_messages.each do |msg| %>
-                            <li><%= msg %></li>
-                        <% end %>
-                        </ul>
-                        </div>
-                        <% end %>
+                    
 
                     <div id="contact" class="row">
-                    <span>Contact information</span>
-                    <span class="pull-right">Already have an account? <a href="#">Log in</a></span>
                     
-                    <p><%= f.text_field :email, placeholder: "Email", size: 65 %></p>
+                    <!-- FIXME: 
+                    <span class="">Already have an account? <a href="#">Log in</a></span>
+                    
+                    <br>
+                    <br>
+                    restore it if account functionality is implemented -->
+                    
+                    <!-- invisible tag to hold default value -->
+                    
+                    
+                    
+                    
+
+                     
+                    <span>Contact information</span>
+                    
+                    <p><%= f.text_field :email ,placeholder: "Email", size: 65 %></p>
                     
                     </div>
 
-                    <!-- TODO: member mailing-->
+                    
                     
 
                     <div id="address" class="row">
                     <span>Shipping address</span>
                     <br>
-                    <%= f.text_field :first_name, placeholder: "First name", size: 30 %>
-                    <%= f.text_field :last_name, placeholder: "Last name", size: 30 %>
+                    <%= f.text_field :first_name , placeholder: "First name", size: 30 %>
+                    <%= f.text_field :last_name,  placeholder: "Last name", size: 30 %>
                     <%= f.text_field :address, placeholder: "Address", size: 65 %>
                     <%= f.text_field :building_optional, placeholder: "Apartment, suite, etc. (optional) ", size: 65 %>
                     <%= f.text_field :city, placeholder: "City", size: 65 %>
                     <br>
-                    <!-- TODO: city-state gem-->
+                    
                     <%= f.country_select :country, prompt: "Please select country", size: 25 %>
                     <br>
                     <%= f.text_field :province, placeholder: "province", size: 17%>

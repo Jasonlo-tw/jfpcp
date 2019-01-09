@@ -2,12 +2,13 @@
 
 <div class="util-bar container-fluid">
       <div class="row">
-        <!-- #TODO: implement search function with Elasticsearch -->
+        <!-- #TODO: implement search function with Elasticsearch 
         <span id="search" class="col-xs-2">Search</span>
+        -->
 
-        <!-- #TODO: implement account utilities -->
+        
         <div id="member-content" class="pull-right ">
-          
+          <!-- TODO: Ignore this part for now as we are not implementing account functionalities. Should make it later if there's time. 
           <span id="padding_space" class="pull-right">&nbsp &nbsp</span>
 
           <span id="register" class="pull-right">
@@ -18,6 +19,7 @@
           <%= link_to 'Log In', user_session_path %>
           </span>
           <br>
+          -->
           <span id="padding_space" class="pull-right">&nbsp &nbsp</span>
           <span id="login" class="pull-right">
           <%= link_to 'Check order', '#' %>
@@ -35,9 +37,14 @@
           
 
           <span id="cart" class="pull-right">
-          <%= items_in_cart(@cart.line_items.count, carts_path) %>
-          <!-- FIXME: show items count only, as the total price is implemented in JS and hard to track; in addition it is meaningless to show total price at this stage -->
-          <!-- FIXME: When an item is added to cart, it should record the cart_id. Implement it in LineItem model. -->
+            <% if @cart.line_items.count ==0 %>
+            <%= "No item in cart" %>
+            
+            <% else %>
+            <%= items_in_cart(@cart.line_items.count, carts_path) %>
+            <% end %>
+            
+            <!-- FIXME: When an item is added to cart, it should record the cart_id. Implement it in LineItem model. -->
           
           </span>
 

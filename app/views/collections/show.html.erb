@@ -32,7 +32,7 @@
 
 
         <!-- #TODO: sorting selector after products are done -->
-        <!-- #FIXME: Pull the heading and dropdown to the same line -->
+        
         
         <div id="product-wrapper" class="col-xs-10">
             <div id="collections-header" class="row " >
@@ -57,22 +57,25 @@
                     
                 <!-- Fill in products by collection -->
                 <% @products.each do |p| %>
-                    <div id="product-list" class="card">
                     
-                        <div class="card-body col-md-4 text-center">
-                            <!-- Product image -->
+                        <div id="product-list" class="card">
+                            
                             <!-- TODO: Make whole cell clickable-->
-                            <%= image_tag 'products/dummy.png', class: "card-img-top " %><br>
+                            <div class="card-body col-md-4 text-center">
+                                <!-- Product image -->
+                                
+                                <%= image_tag 'products/dummy.png', class: "card-img-top " %><br>
 
-                            <!-- Product name -->
-                            <%= link_to p.product_name, controller: "products", action: "show", product_name: p.product_name.parameterize 
-                            %><br>
+                                <!-- Product name -->
+                                <%= link_to p.product_name, controller: "products", action: "show", product_name: p.product_name.parameterize 
+                                %><br>
 
-                            <!-- Product price -->
-                            <!-- TODO: Use currency helper on price-->
-                            <%= p.price %>
+                                <!-- Product price -->
+                                <!-- TODO: Use currency helper on price-->
+                                <%= p.price %>
+                            </div>
                         </div>
-                    </div>
+                    
                 <% end %>
 
                 
