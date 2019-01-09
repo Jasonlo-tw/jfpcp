@@ -1,0 +1,7 @@
+<h1>Check order</h1>
+<p>Please enter your email address here to show your order(s).</p>
+
+<%= form_tag("/orders", method: "get") do %>
+    <%= text_field_tag(:account) %>
+    <%= submit_tag("Submit")%>
+<% end %>

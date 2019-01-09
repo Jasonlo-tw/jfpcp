@@ -1,0 +1,62 @@
+<div class="container text-center">
+<h1>Orders for <%=params[:account]%></h>
+</div>
+<hr>
+
+
+<%if @orders.blank? %>
+<%= "Oops, you typed in wrong email, or the email can't be found." %>
+<%= link_to 'Try again', controller: "orders", action: "order_check" %>
+<%end%>
+
+<table class="table table-bordered">
+    <div class="container">
+
+    <% @orders.each do |o| %>
+            <div id="orderID-<%=o.id%>" class="row"><h3>Order number <%= o.created_at.strftime("%Y%M%d") %><%=o.id%></h3></div>
+            <hr>
+            <div id="items" class="row">
+                <h4>Items</h4>
+                    <%@line_items.each do |i| %>
+                        <p id="each-item">
+                            
+                            <span><%= Product.find_by(id: i.id).product_name %>&nbsp</span>
+                            
+                            <span>USD$<%= Product.find_by(id: i.id).price %></span>
+                            
+                        </p>
+                    <%end%>
+                    <hr>
+            </div>
+            
+            <div class="row">Shipping Fee: USD$<%= o.shipping_fee %></p></div>
+            
+            <div class="row"><p>Total: USD$<%= o.total %></p></div>
+            
+            <div class="row"><p>Ordered Date: <%= o.created_at.strftime("%Y%M%d") %></p></div>
+            
+            <div class="row"><p>Process: <%=o.process%></p></div>
+            
+            <div class="row"><p>Comments <%= o.comments %></p></div>
+
+            
+
+            
+
+        
+<% end %>
+        <hr>
+
+        <div id="action" class="row">
+            <%= link_to 'Cancel Order', '#path' %>
+            <br>
+            <%= link_to 'Contact Service', '#path' %>
+        
+        </div>
+        
+        </div>
+
+        
+        
+    </table>
+

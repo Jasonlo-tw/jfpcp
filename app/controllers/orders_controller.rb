@@ -58,9 +58,27 @@ class OrdersController < ApplicationController
     render 'order_complete'
   end
 
+  def order_check
+    
+  end
+
+  def index
+    
+
+    @orders = Order.where("account = ?", params[:account])
+
+    @line_items = LineItem.where("order_id = ?", @orders.first.id)
+  end
+
   private
 
     def comment_param
       params.require(:order).permit(:comments)
     end
+
+    
+
+    
+
+    
 end
