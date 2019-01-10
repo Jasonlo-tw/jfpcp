@@ -2,11 +2,13 @@
 
 Introduction:
 This is a mockup of JumpFromPaper (abbreviation as "JFP" below) official site (https://www.jumpfrompaper.com/) for practicing to build website and demonstrate related skills, like Rails itself, HTML, CSS & Bootstrap...etc.
-The main point of this work is "cart" functionality, i.e. browsing products, put them into cart and then checkout.
-There are still functionalities in plan or neglected in this version, please see the section "next-stage plan" below.
+The main point of this work is "cart" functionality, i.e. browsing products, put them into cart and then checkout. Static pages are mostly redirected to JFP site.
+There are still functionalities in plan or neglected in this version, please see the section "next-stage plan" below and comments in source code as "TODO" and "FIXME".
 
 For wireframe, please see the Figma link below.
 https://www.figma.com/file/NhsGjjpm1kVPbTrA0LELmWk3/JFP-website-wireframe?node-id=0%3A1
+
+\*Please note, as the specs may change during the process, wireframe differs with the result for many parts.
 
 ---
 
@@ -14,7 +16,7 @@ Quick Start:
 For recruiters to easier evaluate my skills, please see the processes below.
 
 1. Browse to "/collections" via "SHOP" link in navbar.
-   As this is for demo only, there's only three collections: "Art Baby Collection", "Collection" and "Color Me In Collection" with "All Products" also available.
+   As this is for demo only, there's only three collections: "Art Baby Collection", "Classic Collection" and "Color Me In Collection" with "All Products" also available.
 
 2. Choose the product you may like and read the descriptions.
    If you are interested to buy any of them, click "ADD TO CART".

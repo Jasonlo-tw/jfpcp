@@ -67,10 +67,10 @@
                             <div class="card-body col-md-4 text-center">
                                 <!-- Product image -->
                                 
-                                <%= image_tag 'products/dummy.png', class: "card-img-top " %><br>
+                                <%= image_tag p.image, class: "card-img-top ", style: "width: 100px"%><br>
 
                                 <!-- Product name -->
-                                <%= link_to p.product_name, controller: "products", action: "show", product_name: p.product_name.parameterize 
+                                <%= link_to p.product_name, controller: "products", action: "show", product_name: p.product_name.parameterize, class: "text-center"
                                 %><br>
 
                                 <!-- Product price -->

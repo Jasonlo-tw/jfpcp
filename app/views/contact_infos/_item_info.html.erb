@@ -3,7 +3,7 @@
     <div id="item-list" class="row">
         <div id="image" class="col-xs-3">
             <!--FIXME: put the actual image after the function is finished-->
-            <%= image_tag 'products/dummy.png' %></p>
+            <%= image_tag Product.find(line_item.id).image, style: "width: 100px" %></p>
         </div>
 
         <div id="item_name" class="col-xs-5">

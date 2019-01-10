@@ -28,7 +28,7 @@
             
             <span id="product-image" class="col-xs-3">
                 <!--FIXME: put the actual image after the function is finished-->
-                <p><%= image_tag 'products/dummy.png' %></p>
+                <p><%= image_tag Product.find(line_item.id).image, style: "width: 100px" %></p>
                 
             </span>
 

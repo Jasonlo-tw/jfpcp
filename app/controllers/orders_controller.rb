@@ -46,7 +46,7 @@ class OrdersController < ApplicationController
 
                       
     # At the same time, remember to clear the cart
-    @cart.destroy
+    
     session[:cart_id] = nil
 
     
