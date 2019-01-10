@@ -1,16 +1,16 @@
 <div class="container text-center">
-<h1>Orders for <%=params[:account]%></h>
+<h1>Orders for <%=params[:account]%></h1>
 </div>
 <hr>
 
 
-<%if @orders.blank? %>
-<%= "Oops, you typed in wrong email, or the email can't be found." %>
-<%= link_to 'Try again', controller: "orders", action: "order_check" %>
-<%end%>
 
 <table class="table table-bordered">
     <div class="container">
+    <%if @orders.blank? %>
+    <%= "Oops, you typed in wrong email, or the email can't be found." %>
+    <%= link_to 'Try again.', controller: "orders", action: "order_check" %>
+    <%end%>
 
     <% @orders.each do |o| %>
             <div id="orderID-<%=o.id%>" class="row"><h3>Order number <%= o.created_at.strftime("%Y%M%d") %><%=o.id%></h3></div>
@@ -43,18 +43,20 @@
 
             
 
-        
-<% end %>
-        <hr>
-
         <div id="action" class="row">
-            <%= link_to 'Cancel Order', '#path' %>
+            <!-- Pass the ID into helper from invisible tag-->
+            <% id = o.id %>
+            <%= cancel_or_return(id) %>
             <br>
             <%= link_to 'Contact Service', '#path' %>
         
         </div>
         
         </div>
+        
+<% end %>
+        <hr>
+
 
         
         

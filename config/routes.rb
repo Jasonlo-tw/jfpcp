@@ -76,6 +76,8 @@ Rails.application.routes.draw do
   get "/orders/order_complete.html.erb", to: 'orders#order_complete'
   get "order_check", to: 'orders#order_check'
 
+  put 'orders/', to: 'orders#update'
+
   
   
 

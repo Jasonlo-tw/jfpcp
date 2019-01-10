@@ -31,11 +31,11 @@ class OrdersController < ApplicationController
 
     @order = Order
             .new(total: total, 
-                shipping_fee: shipping_fee,
-                comments: comments,
-                process: process,
-                account: account, 
-                process: process)
+                 shipping_fee: shipping_fee,
+                 comments: comments,
+                 process: process,
+                 account: account, 
+                 process: process)
             
     @order.save
 
@@ -67,8 +67,28 @@ class OrdersController < ApplicationController
 
     @orders = Order.where("account = ?", params[:account])
 
-    @line_items = LineItem.where("order_id = ?", @orders.first.id)
+    @line_items = LineItem.where("order_id = ?", !@orders.empty? ? @orders.first.id : nil)
   end
+
+  def update
+    order_id = params[:order_id]
+    condition = params[:process]
+    order = Order.find(order_id)
+
+
+    if condition == "Order cancelled"
+      order.update(process: condition)
+      flash[:notice] = "Order cancelled."
+    elsif condition == "Return processing"
+      order.update(process: condition, return: 'Y')
+      flash[:notice] = "Return processing."
+    else
+    end
+
+    redirect_back(fallback_location: 'order_check')
+    
+  end
+
 
   private
 
