@@ -4,7 +4,7 @@
 <hr>
 
 
-
+<% @orders.each do |o| %>
 <table class="table table-bordered">
     <div class="container">
     <%if @orders.blank? %>
@@ -12,7 +12,7 @@
     <%= link_to 'Try again.', controller: "orders", action: "order_check" %>
     <%end%>
 
-    <% @orders.each do |o| %>
+    
             <div id="orderID-<%=o.id%>" class="row"><h3>Order number <%= o.created_at.strftime("%Y%M%d") %><%=o.id%></h3></div>
             <hr>
             <div id="items" class="row">
@@ -43,22 +43,22 @@
 
             
 
-        <div id="action" class="row">
-            <!-- Pass the ID into helper from invisible tag-->
-            <% id = o.id %>
-            <%= cancel_or_return(id) %>
-            <br>
-            <%= link_to 'Contact Service', '#path' %>
+            <div id="action" class="row">
+                <!-- Pass the ID into helper from invisible tag-->
+                <% id = o.id %>
+                <%= cancel_or_return(id) %>
+                <br>
+                <%= link_to 'Contact Service', '#path' %>
+            
+            </div>
         
         </div>
         
-        </div>
-        
-<% end %>
         <hr>
 
 
         
         
+<% end %>
     </table>
 
