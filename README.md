@@ -97,28 +97,3 @@ Improvements:
   Admin can edit the contents of the whole site, like publishing blog posts, putting products onshelf... etc.
 - Sales report generator
   I can definitely learn a lot from making it, and it is needed by markting and sales departments. However a e-commerce company would often integrate it like Shopify does, is there practical need to rebuild the wheels?
-
----
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-- Ruby version
-
-- System dependencies
-
-- Configuration
-
-- Database creation
-
-- Database initialization
-
-- How to run the test suite
-
-- Services (job queues, cache servers, search engines, etc.)
-
-- Deployment instructions
-
-- ...
