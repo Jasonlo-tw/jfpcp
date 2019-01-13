@@ -34,8 +34,8 @@ class OrdersController < ApplicationController
                  shipping_fee: shipping_fee,
                  comments: comments,
                  process: process,
-                 account: account, 
-                 process: process)
+                 account: account
+                 )
             
     @order.save
 
