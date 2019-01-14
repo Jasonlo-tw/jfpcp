@@ -5,8 +5,13 @@ This is a mockup of JumpFromPaper (abbreviation as "JFP" below) official site (h
 The main point of this work is "cart" functionality, i.e. browsing products, put them into cart and then checkout. Static pages are mostly redirected to JFP site.
 There are still functionalities in plan or neglected in this version, please see the section "next-stage plan" below and comments in source code as "TODO" and "FIXME".
 
+For actual site:
+https://jfpcp.herokuapp.com/
+
 For wireframe, please see the Figma link below.
 https://www.figma.com/file/NhsGjjpm1kVPbTrA0LELmWk3/JFP-website-wireframe?node-id=0%3A1
+
+
 
 \*Please note, as the specs may change during the process, wireframe differs with the result for many parts.
 
@@ -51,7 +56,11 @@ Rails configurations:
 
 - webpacker with Vue (planned to use Vue on some pages, but end up only wrote some Vanilla JS, not even jquery)
 - Bootstrap-sass
-- DB: SQLite for development, PostegreSQL for production
+- DB: SQLite for development, PostgreSQL for production
+In order to push to Heroku, the forcefully conversion of SQLite to PostgreSQL , 
+(it's done by creating a new PG database, db:schema:load and db:seed from SQLite dump)
+the "comment" functionality is broken.
+Will use PG from the very beginning to avoid this problem.
 - template language: erb
 
 ---
