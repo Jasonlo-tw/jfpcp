@@ -77,32 +77,32 @@ As the focus is on "cart" function, there are many functions skipped in original
 
 Skipped:
 
-- Member account
+- Member account:
   In the original plan, this will be implemented with gem "Devise". However as the member function of JFP site is relatively simple, which can be almost simplified to order checking, this function is replaced with checking by email. Besides I'll implement account functionality in next work without Devise.
-- Product tagging
+- Product tagging:
   Besides "collections", products are categorized by backpack, shoulder bag, purse... etc., and tagged with "black", "cross body", "gift under \$100"... etc for user to filter products. This is skipped because it's relatively simple as I imagined: just add a column or subtable "tags" in "products" table and filter by tags. Implementing this function makes me learn relatively less stuff, in addition I need to find tags for each product, which is too time-consuming.
-- Sort by
+- Sort by:
   Likewise, users may hope to filter products by selling amount, on-shelf time... etc. Of course it's easy to add these attributes and calculate them from related actions (like adding "selling amount" on checkout), yet the cost-effectiveness is relatively low for a novice backend developer like above mentioned (proposed solution: just use case-when control structure to conditionally sort the products).
-- Search
+- Search:
   Indeed it's even faster than filters when you know the product name, just type and Rails will deliver the product page for you. However, once again, as the focus is on "cart" and this logic is simply matching the input with product name (yes I thought of using Elasticsearch, but why all the hassle for configuration just for a simple function?), I choose to skip it.
-- Pagination
+- Pagination:
   I planned to implement this with Bootstrap instead of Kaminari or will-paginate gem. However as I want to focus on backend, this is not the point.
-- Paypal sandbox
+- Paypal sandbox:
   Surely I can learn a lot from implementing this API (hey, there's many companies mention "experience with API implementaion" in their job descriptions!) and make clear the process from sending request to API server, receiving the respond and then manipulating the order data, yet the whole process depends too much on JS, it may be faster for me to put it aside for now and ask for help from seniors later.
-- Social buttons
+- Social buttons:
   Maybe it can be easily implemented by plugins or gems, but let's just focus on "cart" first.
-- Mailer
+- Mailer:
   Yes it's a very useful functionality for E-commerce site, and many teaching materials would talk about it for its usefulness like "為你自己學 Ruby on Rails" or "Agile Web Development with Ruby on Rails", but once again, let's just focus...
-- Recently Viewed and You May Also Like
+- Recently Viewed and You May Also Like:
   Actually I don't really know how to implement them. For "recently viewed", maybe it's about recording the product pages and make it a parameter in session[]. And maybe recommendation engine is built in Shopify. Let's just skip.
-- Customer Reviews
+- Customer Reviews:
   In Wes Bos's "Javascript 30" course, I did learn how to manipulate HTML tags with event listeners. But that's mostly about frontend and simply creating records at backends. Skip.
 
 Improvements:
 
-- i18n globalization
+- i18n globalization:
   For a company targeting global market, it's sure thing to support i18n functionality.
-- Admin
+- Admin:
   Admin can edit the contents of the whole site, like publishing blog posts, putting products onshelf... etc.
-- Sales report generator
+- Sales report generator:
   I can definitely learn a lot from making it, and it is needed by markting and sales departments. However a e-commerce company would often integrate it like Shopify does, is there practical need to rebuild the wheels?
